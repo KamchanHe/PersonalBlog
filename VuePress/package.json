@@ -1,0 +1,21 @@
+{
+  "name": "vuepress",
+  "version": "1.0.0",
+  "repository": "https://KamchanHe.github.io",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
+  },
+  "author": "Kamchan",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "vuepress-theme-reco": "^1.0.4"
+  }
+}

@@ -1,0 +1,84 @@
+const path = require('path');
+module.exports = {
+  theme:'reco',
+  title: "Kamchan House",
+  base: '/',
+  description: "Kamchan's Personal Blog",
+  port: 8004,
+  markdown: {
+    lineNumbers: true
+  },
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
+  ],
+  themeConfig: {
+    repo: 'https://github.com/KamchanHe/KamchanHe.github.io',//GitHub默认配置
+    // type:'blog',//博客大头模式
+    sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
+    // 最后更新时间
+    lastUpdated: 'Last Updated',
+    record: '粤ICP备19023908号-1',
+    startYear: '2019',
+    author: 'Kamchan',
+    logo: 'https://kamchan.oss-cn-shenzhen.aliyuncs.com/logo.png',
+    // valineConfig: { //留言版
+    //   appId: 'mX1T7Ghg0ouHlK8wQv1dCPbj-gzGzoHsz',// your appId
+    //   appKey: 'gyK6CKRbwGB8MdxF7LsHAQnF', // your appKey
+    // },
+    // plugins: ['@vuepress/last-updated'],
+    // keyPage: {
+    //       keys: ['123456'],
+    //       color: '#42b983', // 登录页动画球的颜色
+    //       lineColor: '#42b983' // 登录页动画线的颜色
+    //     },
+    nav:[
+      { text: '首页', link: '/', icon: 'reco-home' }, // 内部链接 以docs为根目录
+      {
+        text: 'Vue',
+        icon: 'reco-document',
+        items: [
+          { text: 'Vue进阶教程', link: '/vue-info/components' }
+        ]
+      },
+      { text: '图床', link: '/picGo/', icon: 'reco-api' },
+      { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
+      // 下拉列表
+      // {
+      //   text: 'GitHub',
+      //   icon: 'reco-github',
+      //   items: [
+      //     { text: 'GitHub地址', link: 'https://github.com/OBKoro1' },
+      //     {
+      //       text: '算法仓库',
+      //       link: 'https://github.com/OBKoro1/Brush_algorithm'
+      //     }
+      //   ]
+      // }
+    ],
+    sidebar:{
+      '/vue-info/': [
+        ['/vue-info/components','Vue组件间通信方式'],
+        ['/vue-info/jsx','render函数之JSX应用'],
+        ['/vue-info/jwt','JWT认证'],
+        ['/vue-info/cascader','级联组件编写'],
+        ['/vue-info/unit','Vue单元测试'],
+        ['/vue-info/auth','Vue权限菜单及按钮权限'],
+        ['/vue-info/vue-router','Mini Vue-Router && Mini Vuex'],
+        ['/vue-info/source','Vue原理剖析'],
+        ['/vue-info/ssr','Vue优化'],
+        ['/vue-info/vue+ts','Vue + TS 开发应用']
+      ],
+      '/picGo/': [
+        ['/picGo/','picGo && Github 搭建个人图床']
+      ]
+    }
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@public': path.join(__dirname,'pubilc')
+      }
+    }
+  }
+}
