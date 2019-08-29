@@ -9,10 +9,11 @@ module.exports = {
     lineNumbers: true
   },
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: '/favicon.ico' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
   ],
   themeConfig: {
+    huawei:true,
     repo: 'https://github.com/KamchanHe/KamchanHe.github.io',//GitHub默认配置
     // type:'blog',//博客大头模式
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
@@ -38,10 +39,11 @@ module.exports = {
         text: 'Vue',
         icon: 'reco-document',
         items: [
-          { text: 'Vue进阶教程', link: '/vue-info/components' }
+          { text: 'Vue的api', link: '/vue-api/introduce' },
+          { text: 'Vue进阶教程', link: '/vue-info/components' },
         ]
       },
-      { text: '图床', link: '/picGo/', icon: 'reco-api' },
+      { text: '图床', link: '/picGo/picGo&&Github', icon: 'reco-api' },
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       // 下拉列表
       // {
@@ -70,7 +72,23 @@ module.exports = {
         ['/vue-info/vue+ts','Vue + TS 开发应用']
       ],
       '/picGo/': [
-        ['/picGo/','picGo && Github 搭建个人图床']
+        ['/picGo/picGo&&Github','picGo && Github 搭建个人图床'],
+        ['/picGo/core','快速上手picGo-Core']
+      ],
+      '/vue-api/': [
+        ['/vue-api/introduce','Vue -渐进式JavaScript框架'],
+        ['/vue-api/library&frameworks','库和框架的区别'],
+        ['/vue-api/mvvm','MVVM的介绍'],
+        ['/vue-api/start','起步'],
+        ['/vue-api/twoWayDataBinding','双向数据绑定'],
+        ['/vue-api/instruction','指令'],
+        ['/vue-api/style-class','样式处理'],
+        ['/vue-api/fillter','过滤器 fillter'],
+        ['/vue-api/keyModifier','按键修饰符'],
+        ['/vue-api/watch','监视数据变化 - watch'],
+        ['/vue-api/computed','计算属性'],
+        ['/vue-api/lifeCycle','生命周期'],
+        ['/vue-api/directive','自定义指令'],
       ]
     }
   },
@@ -82,3 +100,73 @@ module.exports = {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,14 @@ features:
   details: Vue权限菜单及按钮权限 Vue-router、Vuex源码实现 Vue原理剖析
 - title: Vue优化和服务器布署
   details: Vue优化预渲染、骨架屏、Nuxt.js服务端渲染 使用typescript构建vue应用 Docker + nginx实现vue的布署和持续集成
-footer: MIT Licensed | Copyright © 2019-present Kamchan Ho
+  footer: hello
 ---
-
+<script type="text/javascript">
+  export default{
+    mounted(){
+      document.getElementsByTagName('span')[6].style.cursor = 'pointer';
+      document.getElementsByTagName('span')[6].children[1].target = 'blank';
+      document.getElementsByTagName('span')[6].children[1].href='http://www.beian.miit.gov.cn'
+    }
+  }
+</script>
