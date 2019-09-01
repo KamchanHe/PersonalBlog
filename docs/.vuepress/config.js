@@ -36,11 +36,12 @@ module.exports = {
     nav:[
       { text: '首页', link: '/', icon: 'reco-home' }, // 内部链接 以docs为根目录
       {
-        text: 'Vue',
+        text: '开发',
         icon: 'reco-document',
         items: [
           { text: 'Vue的api', link: '/vue-api/introduce' },
           { text: 'Vue进阶教程', link: '/vue-info/components' },
+          { text: 'webpack', link: '/webpack/module' },
         ]
       },
       {
@@ -98,9 +99,15 @@ module.exports = {
         ['/vue-api/directive','自定义指令'],
         ['/vue-api/component','组件定义'],
         ['/vue-api/communication','组件通信'],
+        ['/vue-api/single','vue单文件组件'],
       ],
       '/zsh/': [
         ['/zsh/zsh', 'Shell——Oh My Zsh 配置指南']
+      ],
+      '/webpack/': [
+        ['/webpack/module','前端模块化'],
+        ['/webpack/introduce','webpack概述'],
+        ['/webpack/install','安装webpack']
       ]
     }
   },
