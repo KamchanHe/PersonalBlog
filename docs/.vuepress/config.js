@@ -107,7 +107,8 @@ module.exports = {
       '/webpack/': [
         ['/webpack/module','前端模块化'],
         ['/webpack/introduce','webpack概述'],
-        ['/webpack/install','安装webpack']
+        ['/webpack/install','webpack的基本使用'],
+        ['/webpack/publishing','Webpack 发布项目']
       ]
     }
   },

@@ -17,6 +17,8 @@ features:
   details: Vue权限菜单及按钮权限 Vue-router、Vuex源码实现 Vue原理剖析
 - title: Vue优化和服务器布署
   details: Vue优化预渲染、骨架屏、Nuxt.js服务端渲染 使用typescript构建vue应用 Docker + nginx实现vue的布署和持续集成
+- title: Fundebug
+  details: 推荐大家使用Fundebug，一款很好用的BUG监控工具~ [官网](https://www.fundebug.com/)
 - title: Vue知识点补充
   details: Vue
   footer: hello
