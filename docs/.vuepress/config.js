@@ -50,8 +50,10 @@ module.exports = {
         items: [
           { text: '图床', link: '/picGo/picGo&&Github', },
           { text: 'zsh', link: '/zsh/zsh' },
+          { text: '正则大全', link: '/regular/regular'}
         ]
       },
+      { text: 'BUG', link:'/bug/wxLudan', icon: 'reco-document'},
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       // 下拉列表
       // {
@@ -109,6 +111,12 @@ module.exports = {
         ['/webpack/introduce','webpack概述'],
         ['/webpack/install','webpack的基本使用'],
         ['/webpack/publishing','Webpack 发布项目']
+      ],
+      '/regular/': [
+        ['/regular/regular', '常用正则表达式']
+      ],
+      '/bug/':[
+        ['/bug/wxLudan', '鲁蛋小程序开发遇到的BUG']
       ]
     }
   },
