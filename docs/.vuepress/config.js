@@ -53,6 +53,7 @@ module.exports = {
           { text: '正则大全', link: '/regular/regular'}
         ]
       },
+      { text: 'Setapp', link:'/setapp/home', icon: 'reco-api'},
       { text: 'BUG', link:'/bug/wxLudan', icon: 'reco-document'},
       { text: 'TimeLine', link: '/timeLine/', icon: 'reco-date' },
       // 下拉列表
@@ -117,6 +118,9 @@ module.exports = {
       ],
       '/bug/':[
         ['/bug/wxLudan', '鲁蛋小程序开发遇到的BUG']
+      ],
+      '/setapp/':[
+        ['/setapp/home', 'Setapp']
       ]
     }
   },
