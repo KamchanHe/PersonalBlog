@@ -42,6 +42,8 @@ module.exports = {
           { text: 'Vue的api', link: '/vue-api/introduce' },
           { text: 'Vue进阶教程', link: '/vue-info/components' },
           { text: 'webpack', link: '/webpack/module' },
+          { text: 'flexible移动端适配', link: '/flexible/flexible' },
+          { text: 'vw实现移动端适配', link: '/vw/vw' }
         ]
       },
       {
@@ -121,6 +123,12 @@ module.exports = {
       ],
       '/setapp/':[
         ['/setapp/home', 'Setapp']
+      ],
+      '/flexible/':[
+        ['/flexible/flexible', 'Flexible实现淘宝H5页面的终端适配']
+      ],
+      '/vw/':[
+        ['/vw/vw', 'Vue项目中使用vw实现移动端适配']
       ]
     }
   },
