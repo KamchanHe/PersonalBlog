@@ -10,7 +10,7 @@ tags:
 
 框架与库之间最本质区别在于控制权：you call libs, frameworks call you（控制反转）
 
-![library_framework](@public/library_framework.png)
+![library_framework](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/library_framework.png)
 
 **库**：库是更多是一个封装好的特定的集合，提供给开发者使用，而且是特定于某一方面的集合（方法和函数），库没有控制权，控制权在使用者手中，在库中查询需要的功能在自己的应用中使用，我们可以从封装的角度理解库；
 

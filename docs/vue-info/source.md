@@ -212,9 +212,9 @@ dom-diff原理
 - `Vue.prototype._render` 获取虚拟dom元素
 - `vm._update`会更新页面
 
-![newVue](@public/newVue.png)
+![newVue](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/newVue.png)
 
-![diff](@public/diff.jpg)
+![diff](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/diff.jpg)
 
 
 

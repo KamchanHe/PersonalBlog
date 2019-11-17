@@ -12,7 +12,7 @@ tags:
 
 ## 1、创建github博客图片仓库
 
-![create](@public/create.png)
+![create](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/create.png)
 
     这里我的仓库名为picGos。
 
@@ -21,7 +21,7 @@ tags:
 
 
 
-![setting](@public/setting.png)
+![setting](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/setting.png)
 
     进入Settings->Developer settings:
 
@@ -29,13 +29,13 @@ tags:
 
     点击Generrate new token
 
-![setting](@public/token.png)
+![setting](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/token.png)
 
     会让你验证密码，输入即可。
 
     token描述随意，记得勾选下面repo选项，然后确定生成。
 
-![setting](@public/tokenSetting.png)
+![setting](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/tokenSetting.png)
 
     最后会生成一个token
 
@@ -49,7 +49,7 @@ tags:
 
 现在来说说如何配置Github图床：
 
-![setting](@public/picGoSetting.png)
+![setting](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/picGoSetting.png)
 
 最后的自定义域名：<font color="red">https://raw.githubusercontent.com/[仓库名]/master。</font>
 

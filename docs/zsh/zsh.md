@@ -16,7 +16,7 @@ tags:
 
 而相比 Bash 来说，Zsh 也拥有许多更强大的功能：更智能的自动补全、命令选项提示、更丰富的主题，等等。
 
-![一个漂亮又强大的终端](@public/zshImage/zsh_001.png)
+![一个漂亮又强大的终端](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_001.png)
 
 ## Zsh 与 Oh My Zsh
 
@@ -34,7 +34,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 在安装过程中会提示 <font color="#c7254e">Do you want to change your default shell to zsh? [Y/n]</font>（是否将<font color="#c7254e">默认 Shell</font> 切换到 <font color="#c7254e">Zsh</font>），按下 <font color="#c7254e">Y</font> 并回车即可。随后会提示 <font color="#c7254e">Password for xxx</font>，输入你的用户密码并回车即可。当你看见大大的 <font color="#c7254e">Oh my zsh</font> 标志时就表示 <font color="#c7254e">Oh My Zsh</font> 已经安装成功了。
 :::
 
-![显示「Oh my zsh」表示安装成功](@public/zshImage/zsh_002.png)
+![显示「Oh my zsh」表示安装成功](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_002.png)
 
 ## 基本设置
 
@@ -58,7 +58,7 @@ echo 'set nu!' >> ~/.vimrc  #开启行号显示
 
 Zsh 的配置文件中提供了详细的注释，你可以根据注释修改相关设置，满足自己的要求。例如，你想关闭 Zsh 的自动更新，则定位到 <font color="#c7254e">DISABLE_AUTO_UPDATE </font>一行，根据前面的注释，删除行前的注释符号 <font color="#c7254e">#</font> 即可。
 
-![关闭自动更新](@public/zshImage/zsh_003.png)
+![关闭自动更新](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_003.png)
 
 保存退出之后，使用以下命令使 Zsh 的配置立即生效：
 
@@ -78,7 +78,7 @@ Oh My Zsh 自带了大量主题文件。你可以执行以下命令查看自带�
 
 定位到 <font color="#c7254e">ZSH_THEME</font> 一行，将双引号中的内容修改为自己选择的主题名即可。
 
-![修改主题名](@public/zshImage/zsh_004.png)
+![修改主题名](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_004.png)
 
 保存退出后，执行以下命令使 zsh 的配置立即生效：
 
@@ -88,7 +88,7 @@ Oh My Zsh 自带了大量主题文件。你可以执行以下命令查看自带�
 
 主题设置完成后，终端中却出现了乱码的字符：
 
-![乱码字符](@public/zshImage/zsh_005.png)
+![乱码字符](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_005.png)
 
 这是由于我使用的 agnoster 主题中含有特殊字符，需要安装 [Powerline](https://github.com/powerline/fonts) 字体支持才能正常显示。打开终端，参考以下命令安装 Powerline 字体：
 
@@ -102,15 +102,15 @@ cd && rm -rf ~/Downloads/fonts  #删除下载的字体文件
 
 随后，我们按 <font color="#c7254e">⌘ + ,</font> 打开终端偏好设置，在<font color="#c7254e">「描述文件 > 文本」</font>中更改字体。
 
-![更改字体选项](@public/zshImage/zsh_006.png)
+![更改字体选项](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_006.png)
 
 在弹出的窗口中选择一款 Powerline 字体（所有可选项请参考 Powerline 的 [GitHub 页面](https://github.com/powerline/fonts)），调整一下字体大小即可。在这里我选择了 <font color="#c7254e">DejaVu Sans Mono for Powerline 字体 ~~（逮虾户！）~~ </font>，大小设置为 <font color="#c7254e">14 磅</font>。
 
-![我的字体设置](@public/zshImage/zsh_007.png)
+![我的字体设置](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_007.png)
 
 此时回到终端，发现表示文件目录的箭头已经可以正常显示了：
 
-![Powerline 字体可以在 agnoster 主题中正常显示](@public/zshImage/zsh_008.png)
+![Powerline 字体可以在 agnoster 主题中正常显示](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_008.png)
 
 ### 配置终端颜色方案
 
@@ -120,29 +120,29 @@ cd && rm -rf ~/Downloads/fonts  #删除下载的字体文件
 
 下载完毕后，我们按 <font color="#c7254e">⌘ + ,</font> 打开终端偏好设置，点击<font color="#c7254e">「描述文件 > ⚙︎⌄ > 导入」</font>。
 
-![导入选项](@public/zshImage/zsh_009.png)
+![导入选项](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_009.png)
 
 在弹出的窗口中，定位到 <font color="#c7254e">Downloads > solarized > osx-terminal.app-colors-solarized</font>，双击 <font color="#c7254e">Solarized Dark ansi.terminal</font> 导入暗色的 <font color="#c7254e">Solarized</font> 配色方案。
 
-![选择下载好的 Solarized 配色方案](@public/zshImage/zsh_010.png)
+![选择下载好的 Solarized 配色方案](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_010.png)
 
 随后，我们在描述文件中选中 <font color="#c7254e">Solarized Dark ansi</font>，点击<font color="#c7254e">「默认」</font>将其设为默认配色方案；别忘了把字体改为 <font color="#c7254e">Powerline</font> 字体并调整大小。
 
-![别忘记改字体](@public/zshImage/zsh_011.png)
+![别忘记改字体](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_011.png)
 
 ### 配色细节修改
 
 重启一下终端，到这里，我们漂亮的终端已经基本完成了，但是现在的配色让人有些看不清字：
 
-![有些看不清字](@public/zshImage/zsh_012.png)
+![有些看不清字](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_012.png)
 
 重度强迫症的我肯定不能接受。因此我们按 <font color="#c7254e">⌘ + ,</font> 打开终端偏好设置，点击<font color="#c7254e">「描述文件 > Solarized Dark ansi」</font>，对配色进行进一步的自定义。单击你想要更改的颜色，在弹出的小窗口中点选<font color="#c7254e">拾色器</font>（像吸管一样的东西）。
 
-![拾色器](@public/zshImage/zsh_013.png)
+![拾色器](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_013.png)
 
 随后，你可以参考下图把颜色一项一项吸过去。这里我的配置综合了 [iTerm 2](https://www.iterm2.com/) 的配色和个人的少量修改。
 
-![配色方案参考](@public/zshImage/zsh_014.png)
+![配色方案参考](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_014.png)
 
 还有一项让我不爽的地方 —— 文件目录前那个长长的 <font color="#c7254e">demo@Stevens-MacBook-Pro</font>。通过修改主题配置文件，我们就能去掉它。使用以下命令编辑 <font color="#c7254e">agnoster</font> 主题的配置文件：
 
@@ -177,7 +177,7 @@ Oh My Zsh 支持许多强大的插件，可以实现语法高亮、命令自动�
 
 要启用某个插件，只需要用 <font color="#c7254e">vim ~/.zshrc</font> 编辑 <font color="#c7254e">zsh 配置文件</font>，定位到 <font color="#c7254e">plugins</font> 一行，在括号中添加需要的插件名称，以空格分隔。保存退出后，别忘了执行  <font color="#c7254e">source ~/.zshrc</font> 使配置立即生效。
 
-![修改 plugins 一行的配置启用插件](@public/zshImage/zsh_015.png)
+![修改 plugins 一行的配置启用插件](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/zshImage/zsh_015.png)
 
 ### 我使用的插件
 

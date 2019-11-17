@@ -287,7 +287,7 @@ mounted() {
 
 状态管理
 
-![vuex](@public/vuex.png)
+![vuex](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/vuex.png)
 
 
 

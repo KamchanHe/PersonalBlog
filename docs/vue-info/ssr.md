@@ -141,7 +141,7 @@ class MyPlugin {
 - 一些常用的浏览器API可能无法正常使用
 -在vue中只支持beforeCreate和created两个生命周期
 
-![ssr](@public/ssr.png)
+![ssr](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/ssr.png)
 
 ## 什么是nuxt
 
@@ -329,7 +329,7 @@ asyncData 服务端渲染的页面数据请求
 <br>
 fetch 同步vuex数据
 
-![nuxt](@public/nuxt.jpg)
+![nuxt](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/nuxt.jpg)
 
 
 

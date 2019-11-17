@@ -9,7 +9,7 @@ module.exports = {
     lineNumbers: true
   },
   head: [
-    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: '/favicon.ico' }],
+    ['link', { rel: 'shortcut icon', type: "image/x-icon", href: 'https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/favicon.ico' }],
     ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no' }]
   ],
   themeConfig: {
@@ -127,7 +127,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@public': path.join(__dirname,'pubilc')
+        '@pubilc': path.join(__dirname,'pubilc')
       }
     }
   }

@@ -109,7 +109,7 @@ list: [
 
 效果：
 
-![googleLazyload](@public/googleLazyload.gif)
+![googleLazyload](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/googleLazyload.gif)
 
 :::tip
 自定义指令的第二用处是用于集成第三方插件。
@@ -152,7 +152,7 @@ Vue.directive('highlight', function(el) {
 ```
 
 效果：
-![highlight](@public/highlight.png)
+![highlight](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/highlight.png)
 
 :::tip
 但凡遇到第三方插件如何与Vue.js集成的问题，都可以尝试用自定义指令实现。

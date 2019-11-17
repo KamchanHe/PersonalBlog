@@ -62,7 +62,7 @@ export default VueRouter;
 
 ## Mini Vuex
 
-![vuex](@public/vuex.png)
+![vuex](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/vuex.png)
 
 ```js
 let Vue;
