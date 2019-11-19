@@ -43,7 +43,8 @@ module.exports = {
           { text: 'Vue进阶教程', link: '/vue-info/components' },
           { text: 'webpack', link: '/webpack/module' },
           { text: 'flexible移动端适配', link: '/flexible/flexible' },
-          { text: 'vw实现移动端适配', link: '/vw/vw' }
+          { text: 'vw实现移动端适配', link: '/vw/vw' },
+          { text: '移动端适配方案', link: '/rem/rem' }
         ]
       },
       {
@@ -113,7 +114,8 @@ module.exports = {
         ['/webpack/module','前端模块化'],
         ['/webpack/introduce','webpack概述'],
         ['/webpack/install','webpack的基本使用'],
-        ['/webpack/publishing','Webpack 发布项目']
+        ['/webpack/publishing','Webpack 发布项目'],
+        ['/webpack/vue-cli3','vue-cli3 配置webpack']
       ],
       '/regular/': [
         ['/regular/regular', '常用正则表达式']
@@ -122,13 +124,26 @@ module.exports = {
         ['/bug/wxLudan', '鲁蛋小程序开发遇到的BUG']
       ],
       '/setapp/':[
-        ['/setapp/home', 'Setapp']
+        ['/setapp/home', '所有App'],
+        ['/setapp/lifestyle', '生活方式'],
+        ['/setapp/creativity', '创造力'],
+        ['/setapp/developerTools', '开发人员工具'],
+        ['/setapp/productivity', '生产力'],
+        ['/setapp/macHacks', 'Mac电脑黑客'],
+        ['/setapp/writing&blogging', '写作 & 写博客'],
+        ['/setapp/education', '教育'],
+        ['/setapp/maintenance', '维护'],
+        ['/setapp/taskManagment', '任务管理'],
+        ['/setapp/personalFinance', '个人理财']
       ],
       '/flexible/':[
         ['/flexible/flexible', 'Flexible实现淘宝H5页面的终端适配']
       ],
       '/vw/':[
         ['/vw/vw', 'Vue项目中使用vw实现移动端适配']
+      ],
+      '/rem/':[
+        ['/rem/rem', '移动端适配方案']
       ]
     }
   },
