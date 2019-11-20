@@ -5,10 +5,10 @@ categories: article
 author: Kamchan
 tags:
 - Javascript
-- flexible
-- rem
+- Flexible
+- Rem
 - 自适应
-- webpack
+- Webpack
 ---
 
 ::: tip

@@ -4,8 +4,8 @@ date: 2019-08-26
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - 使用方式：<font color="#e7254b">v-bind:class="expression"</font> or <font color="#e7254b">:class="expression"</font>

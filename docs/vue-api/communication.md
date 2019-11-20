@@ -4,8 +4,8 @@ date: 2019-08-26
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 ## 父组件到子组件

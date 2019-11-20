@@ -4,8 +4,8 @@ date: 2019-08-27
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 框架与库之间最本质区别在于控制权：you call libs, frameworks call you（控制反转）

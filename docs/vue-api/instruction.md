@@ -4,8 +4,8 @@ date: 2019-08-26
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - 解释：指令 (Directives) 是带有 v- 前缀的特殊属性

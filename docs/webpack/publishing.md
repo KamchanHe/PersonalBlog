@@ -4,7 +4,7 @@ date: 2019-09-01
 categories: article
 author: Kamchan
 tags:
-- picGo
+- PicGo
 - Github
 ---
 

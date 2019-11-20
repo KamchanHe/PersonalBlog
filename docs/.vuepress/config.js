@@ -35,6 +35,7 @@ module.exports = {
     //     },
     nav:[
       { text: '首页', link: '/', icon: 'reco-home' }, // 内部链接 以docs为根目录
+      { text: 'wheels', link: '/wheels/store.md', icon: 'reco-api' },
       {
         text: '开发',
         icon: 'reco-document',
@@ -144,6 +145,17 @@ module.exports = {
       ],
       '/rem/':[
         ['/rem/rem', '移动端适配方案']
+      ],
+      '/wheels/':[
+        ['/wheels/store.md', 'Vue小型项目状态管理'],
+        ['/wheels/eventBus.md', 'Vue EventBus'],
+        ['/wheels/debounce&throttle.md', '防抖 & 节流'],
+        ['/wheels/axios.md', 'axios请求封装'],
+        ['/wheels/jwt_token.md', '服务端Token'],
+        ['/wheels/scroll.md', 'Vue-scroll'],
+        ['/wheels/slider.md', 'Vue-slider'],
+        ['/wheels/socket.md', '服务端+客户端 socket'],
+        ['/wheels/progress.md', 'vue-progress'],
       ]
     }
   },

@@ -4,8 +4,8 @@ date: 2019-08-26
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - 作用：文本数据格式化

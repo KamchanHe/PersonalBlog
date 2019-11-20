@@ -4,8 +4,8 @@ date: 2019-08-27
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - 双向数据绑定：将DOM与Vue实例的data数据绑定到一起，彼此之间相互影响

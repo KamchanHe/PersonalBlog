@@ -4,8 +4,8 @@ date: 2019-08-27
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - MVVM，一种更好的UI模式解决方案

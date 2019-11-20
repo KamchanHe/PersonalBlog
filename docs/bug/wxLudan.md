@@ -5,7 +5,7 @@ categories: article
 author: Kamchan
 tags:
 - Mac
-- macOS Catalina
+- MacOS Catalina
 - Javascript
 ---
 

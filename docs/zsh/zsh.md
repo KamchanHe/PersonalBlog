@@ -5,8 +5,8 @@ categories: article
 author: Kamchan
 tags:
 - Mac
-- macOS Catalina
-- zsh
+- MacOS Catalina
+- Zsh
 - Oh My Zsh
 ---
 

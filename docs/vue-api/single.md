@@ -4,8 +4,8 @@ date: 2019-08-31
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - [vue-loader](https://vue-loader-v14.vuejs.org/zh-cn/)

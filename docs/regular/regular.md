@@ -4,7 +4,7 @@ date: 2019-09-30
 categories: article
 author: Kamchan
 tags:
-- regular
+- Regular
 ---
 
 ## 迅雷链接

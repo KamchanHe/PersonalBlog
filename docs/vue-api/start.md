@@ -4,8 +4,8 @@ date: 2019-08-27
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - 安装：<font color="#c7254e">npm i -S vue</font>

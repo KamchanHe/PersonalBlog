@@ -4,8 +4,8 @@ date: 2019-08-26
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 在监听键盘事件时，我们经常需要检查详细的按键。Vue 允许为 <font color="#c7254e">v-on</font> 在监听键盘事件时添加按键修饰符：

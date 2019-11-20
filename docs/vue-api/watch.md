@@ -4,8 +4,8 @@ date: 2019-08-26
 categories: article
 author: Random
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 - 概述：<font color="#c7254e">watch</font>是一个对象，键是需要观察的表达式，值是对应回调函数

@@ -4,8 +4,8 @@ date: 2019-08-22
 categories: article
 author: 珠峰培训
 tags:
-- vue
-- webpack
+- Vue
+- Webpack
 ---
 
 # Vue组件间通信方式
