@@ -122,7 +122,8 @@ module.exports = {
         ['/regular/regular', '常用正则表达式']
       ],
       '/bug/':[
-        ['/bug/wxLudan', '鲁蛋小程序开发遇到的BUG']
+        ['/bug/wxLudan', '鲁蛋小程序开发遇到的BUG'],
+        ['/bug/ypdWxH5', '优普道H5开发遇到的BUG']
       ],
       '/setapp/':[
         ['/setapp/home', '所有App'],
@@ -147,15 +148,18 @@ module.exports = {
         ['/rem/rem', '移动端适配方案']
       ],
       '/wheels/':[
+        ['/wheels/utils.md', 'Utils'],
         ['/wheels/store.md', 'Vue小型项目状态管理'],
         ['/wheels/eventBus.md', 'Vue EventBus'],
         ['/wheels/debounce&throttle.md', '防抖 & 节流'],
         ['/wheels/axios.md', 'axios请求封装'],
+        ['/wheels/ajax.md', '做项目用过的axios封装'],
         ['/wheels/jwt_token.md', '服务端Token'],
         ['/wheels/scroll.md', 'Vue-scroll'],
         ['/wheels/slider.md', 'Vue-slider'],
         ['/wheels/socket.md', '服务端+客户端 socket'],
-        ['/wheels/progress.md', 'vue-progress'],
+        ['/wheels/progress.md', 'Vue-progress'],
+        ['/wheels/vueScroll.md', '自封装Vue-Scroll'],
       ]
     }
   },
