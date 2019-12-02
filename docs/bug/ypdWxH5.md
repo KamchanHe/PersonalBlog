@@ -750,3 +750,53 @@ inputFocus() {
 	document.querySelector('#id').scrollIntoView();
 },
 ```
+
+## 在ios端img标签的图片不显示,安卓可正常显示
+
+### 原因
+
+是因为在content中写了viewport-units-buggyfill来兼容不支持vw的设备，导致这个原因。
+
+### 解决方法
+
+此方法就不是最佳解决方案:全局使用img{content:normal!important;}
+
+```css
+img{
+    content: normal !important;
+}
+```
+
+最佳解决方案:应该在图片外层套一个div，设置位置跟宽度，然后里面图片的宽度100%即可。不可以为img设置任何css样式，只可以在为img的父盒子设置样式，img的大小靠百分比设置。
+
+```html
+<!-- 错误示例 -->
+<div class="img">
+    <img src="xxx.png" alt="">
+</div>
+<style>
+    .img{
+        width:100px;
+        height:100px;
+    }
+    .img img{
+        width:100px;
+        height:100px;
+        margin:10px;
+    }
+</style>
+
+
+<!-- 正确示例:在img上定义图片的大小，在ios端才可以正常显示 -->
+<div class="img">
+    <img src="xxx.png" alt="" width="100%">
+</div>
+<style>
+    .img{
+        width:100px;
+        height:100px;
+        padding:10px;
+    }
+</style>
+```
+

@@ -150,6 +150,7 @@ module.exports = {
       '/wheels/':[
         ['/wheels/utils.md', 'Utils'],
         ['/wheels/store.md', 'Vue小型项目状态管理'],
+        ['/wheels/plugins.md', '常用插件'],
         ['/wheels/eventBus.md', 'Vue EventBus'],
         ['/wheels/debounce&throttle.md', '防抖 & 节流'],
         ['/wheels/axios.md', 'axios请求封装'],
