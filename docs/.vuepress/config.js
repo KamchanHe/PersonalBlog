@@ -158,6 +158,7 @@ module.exports = {
         ["/wheels/store.md", "Vue小型项目状态管理"],
         ["/wheels/utils.md", "Utils"],
         ["/wheels/plugins.md", "常用插件"],
+        ["/wheels/ios.md", "iOS设备开发参数"],
         ["/wheels/lodash.md", "Lodash.js"],
         ["/wheels/Immutable.md", "Immutable.js"],
         ["/wheels/eventBus.md", "Vue EventBus"],
