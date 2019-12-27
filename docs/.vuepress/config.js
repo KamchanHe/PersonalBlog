@@ -133,8 +133,9 @@ module.exports = {
       ],
       "/regular/": [["/regular/regular", "常用正则表达式"]],
       "/bug/": [
-        ["/bug/wxLudan", "鲁蛋小程序开发遇到的BUG"],
-        ["/bug/ypdWxH5", "优普道H5开发遇到的BUG"]
+        ["/bug/wxLudan", "鲁蛋小程序开发遇到的问题"],
+        ["/bug/ypdWxH5", "优普道H5开发遇到的问题"],
+        ["/bug/mqsyzt", "美祺溯源中台开发遇到的问题"]
       ],
       "/setapp/": [
         ["/setapp/home", "所有App"],
