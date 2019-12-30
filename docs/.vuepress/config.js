@@ -72,7 +72,7 @@ module.exports = {
           { text: "接码平台", link: "/tools/sms-code" },
         ]
       },
-      { text: "Setapp", link: "/setapp/home", icon: "reco-gitlab" },
+      { text: "Project", link: "/project/home", icon: "reco-gitlab" },
       { text: "BUG", link: "/bug/wxLudan", icon: "reco-document" },
       { text: "TimeLine", link: "/timeLine/", icon: "reco-date" }
       // 下拉列表
@@ -137,18 +137,9 @@ module.exports = {
         ["/bug/ypdWxH5", "优普道H5开发遇到的问题"],
         ["/bug/mqsyzt", "美祺溯源中台开发遇到的问题"]
       ],
-      "/setapp/": [
-        ["/setapp/home", "所有App"],
-        ["/setapp/lifestyle", "生活方式"],
-        ["/setapp/creativity", "创造力"],
-        ["/setapp/developerTools", "开发人员工具"],
-        ["/setapp/productivity", "生产力"],
-        ["/setapp/macHacks", "Mac电脑黑客"],
-        ["/setapp/writing&blogging", "写作 & 写博客"],
-        ["/setapp/education", "教育"],
-        ["/setapp/maintenance", "维护"],
-        ["/setapp/taskManagment", "任务管理"],
-        ["/setapp/personalFinance", "个人理财"]
+      "/project/": [
+        ["/project/home", "项目展示"],
+        ["/project/mqsy", "美祺溯源中台"],
       ],
       "/flexible/": [
         ["/flexible/flexible", "Flexible实现淘宝H5页面的终端适配"]

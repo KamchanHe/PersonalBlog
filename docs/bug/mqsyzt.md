@@ -351,6 +351,24 @@ tags:
 </style>
 ```
 
+## map 地图上线后遇到 china.js 报错问题
+
+### 解决
+
+```html
+<script>
+// import '@/map/js/china' // 中国地图插件
+// 改为
+import datas from "@/assets/map/json/china.json"; // 中国地图插件
+  export default {
+    // 添加注册函数
+    created() {
+      echarts.registerMap('china', datas)
+    }
+  }
+</script>
+```
+
 ## 线形图数据
 
 ### 引入 echart.js
@@ -832,7 +850,8 @@ export default {
     mounted() {
       setTimeout(() => {
         let list = this.$store.state.routers || []
-        this.ruleList = list.filter(v => { // 对路由中meta带hidden的路由隐藏 不显示出来
+        this.ruleList = list.filter(v => {
+          // 对路由中meta带hidden的路由隐藏 不显示出来
           if (v && v.meta && v.meta.hidden === true) {
             return false
           }
@@ -918,7 +937,8 @@ router.beforeEach(async (to, from, next) => {
 
   if (hasToken) {
     // if (to.path === '/login') {
-    if (to.path === '/') { // 因为没接后台 用的时候 这个应该为登录页面 如果有token 则默认去主页面
+    if (to.path === '/') {
+      // 因为没接后台 用的时候 这个应该为登录页面 如果有token 则默认去主页面
       // if is logged in, redirect to the home page
       // next({ path: '/' })
       next({ path: '/home' })
