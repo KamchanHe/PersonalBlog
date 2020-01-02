@@ -10,6 +10,7 @@ tags:
 ## utils.js
 
 ### 检查手机号
+
 ```js
 checkPhone(tel) {
   return /^(?:(?:\+|00)86)?1\d{10}$/.test(tel);
@@ -17,6 +18,7 @@ checkPhone(tel) {
 ```
 
 ### 检查邮箱
+
 ```js
 checkEmail(email) {
   return /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(
@@ -25,8 +27,8 @@ checkEmail(email) {
 },
 ```
 
-
 ### 图片拼接域名
+
 ```js
 getImageUrl(url) {
   if (!url) {
@@ -43,6 +45,7 @@ getImageUrl(url) {
 ```
 
 ### 是否是空对象
+
 ```js
 isEmptyObj(obj) {
   for (let el in obj) {
@@ -53,6 +56,7 @@ isEmptyObj(obj) {
 ```
 
 ### 微信内置浏览器的支付
+
 ```js
 weChatPay(params) {
   if (typeof WeixinJSBridge == "undefined") {
@@ -96,7 +100,8 @@ weChatPay(params) {
 },
 ```
 
-### img转base64
+### img 转 base64
+
 ```js
 getBase64Image(url, cb) {
   var image = new Image();
@@ -115,7 +120,8 @@ getBase64Image(url, cb) {
 },
 ```
 
-### base64转blob
+### base64 转 blob
+
 ```js
 base64ToBlob(code) {
   let parts = code.split(";base64,");
@@ -133,6 +139,7 @@ base64ToBlob(code) {
 ```
 
 ### 处理下载
+
 ```js
 handlerDownload(data, fileName, contentType = "image/jpeg") {
   const blob = new Blob([data], {
@@ -150,6 +157,7 @@ handlerDownload(data, fileName, contentType = "image/jpeg") {
 ```
 
 ### 比较两个对象是否相等
+
 ```js
 Compare(origin, target) {
   if (typeof target !== "object") {
@@ -183,6 +191,7 @@ Compare(origin, target) {
 ```
 
 ### 时间格式化
+
 ```js
 formatTime(dateTime) {
   var date = new Date(dateTime);
@@ -201,6 +210,7 @@ formatTime(dateTime) {
 ```
 
 ### 判断浏览器类型
+
 ```js
 parseUA() {
   var u = navigator.userAgent;
@@ -225,6 +235,7 @@ parseUA() {
 ```
 
 ### 微信小程序支付
+
 ```js
 wepay(data) {
   return new Promise((resolve, reject) => {
@@ -249,6 +260,7 @@ wepay(data) {
 ```
 
 ### 微信小程序上传图片
+
 ```js
 uploadFile(path, title = "上传中") {
   return new Promise((resolve, reject) => {
@@ -278,6 +290,7 @@ uploadFile(path, title = "上传中") {
 ```
 
 ### 微信小程序选择图片
+
 ```js
 chooseImg(count = 1) {
   return new Promise((resolve, reject) => {
@@ -296,6 +309,7 @@ chooseImg(count = 1) {
 ```
 
 ### 微信小程序保存图片到手机相册
+
 ```js
 saveImgToPhotosAlbum(imgUrl) {
   var imgSrc = imgUrl;
@@ -338,4 +352,40 @@ saveImgToPhotosAlbum(imgUrl) {
     }
   });
 }
+```
+
+## Vue项目启动时自动获取本机 IP 地址
+
+### getIp.js
+
+```js
+const os = require('os')
+const ifaces = os.networkInterfaces() // 获取本机ip
+let ip = ''
+
+out: for (var i in ifaces) {
+  for (var j in ifaces[i]) {
+    var val = ifaces[i][j]
+    if (val.family === 'IPv4' && val.address !== '127.0.0.1') {
+      ip = val.address
+      break out
+    }
+  }
+}
+
+module.exports = ip
+```
+
+### 引入
+
+```js
+// webpack.dev.conf.js
+const IP = require('./get-ip')
+const HOST = process.env.HOST
+...
+devServer: {
+	...
+	host: HOST || config.dev.host || IP
+}
+// 当HOST和config.dev.host不存在时则使用本机IP
 ```

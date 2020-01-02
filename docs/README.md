@@ -13,7 +13,8 @@ features:
   details:
 ---
 
-## 增加了接码平台、新项目问题、轮子
+## 增加 [接码平台](/tools/sms-code.html#国内)、[新项目问题](/bug/mqsyzt.html)、[Wheels](/wheels/store.html)
+## 添加 [Vue项目启动时自动获取本机 IP 地址](/wheels/utils.html#vue项目启动时自动获取本机-ip-地址)
 
 <script type="text/javascript">
   export default{
