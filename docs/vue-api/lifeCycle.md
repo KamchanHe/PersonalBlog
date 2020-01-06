@@ -1,5 +1,5 @@
 ---
-title: 实例生命周期
+title: vue-api 实例生命周期
 date: 2019-08-26
 categories: article
 author: Random

@@ -1,5 +1,5 @@
 ---
-title: 样式处理 -class和style
+title: vue-api 样式处理 -class和style
 date: 2019-08-26
 categories: article
 author: Random

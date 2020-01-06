@@ -4,9 +4,9 @@ date: 2019-10-10
 categories: article
 author: Kamchan
 tags:
-  - Mac
-  - MacOS Catalina
-  - Javascript
+- Mac
+- MacOS Catalina
+- Javascript
 ---
 
 ## 自定义导航栏

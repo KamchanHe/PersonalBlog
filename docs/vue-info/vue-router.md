@@ -1,3 +1,13 @@
+---
+title: Mini Vue-Router && Mini Vuex
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # Mini Vue-Router && Mini Vuex
 
 ## vue-router

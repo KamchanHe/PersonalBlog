@@ -1,5 +1,5 @@
 ---
-title: 指令
+title: vue-api 指令
 date: 2019-08-26
 categories: article
 author: Random

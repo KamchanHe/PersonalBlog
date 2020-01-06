@@ -4,12 +4,12 @@ date: 2019-11-27
 categories: article
 author: Kamchan
 tags:
-  - Mac
-  - MacOS Catalina
-  - Javascript
-  - Vue
-  - H5
-  - WeChat
+- Mac
+- MacOS Catalina
+- Javascript
+- Vue
+- H5
+- WeChat
 ---
 
 ## 导语

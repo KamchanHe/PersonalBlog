@@ -1,3 +1,13 @@
+---
+title: Vue权限菜单及按钮权限
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # Vue权限菜单及按钮权限
 
 ## 一.服务端数据

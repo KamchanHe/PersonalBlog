@@ -49,7 +49,7 @@ module.exports = {
     //     },
     nav: [
       { text: "首页", link: "/", icon: "reco-home" }, // 内部链接 以docs为根目录
-      { text: "wheels", link: "/wheels/store.md", icon: "reco-api" },
+      { text: "wheels", link: "/wheels/penetration.md", icon: "reco-api" },
       {
         text: "开发",
         icon: "reco-document",
@@ -72,9 +72,9 @@ module.exports = {
           { text: "接码平台", link: "/tools/sms-code" },
         ]
       },
-      { text: "Project", link: "/project/home", icon: "reco-gitlab" },
+      // { text: "Project", link: "/project/home", icon: "reco-gitlab" },
       { text: "BUG", link: "/bug/wxLudan", icon: "reco-document" },
-      { text: "TimeLine", link: "/timeLine/", icon: "reco-date" }
+      { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' }
       // 下拉列表
       // {
       //   text: 'GitHub',
@@ -147,6 +147,7 @@ module.exports = {
       "/vw/": [["/vw/vw", "Vue项目中使用vw实现移动端适配"]],
       "/rem/": [["/rem/rem", "移动端适配方案"]],
       "/wheels/": [
+        ["/wheels/penetration.md", "内网穿透"],
         ["/wheels/store.md", "Vue小型项目状态管理"],
         ["/wheels/utils.md", "Utils"],
         ["/wheels/plugins.md", "常用插件"],

@@ -1,3 +1,13 @@
+---
+title: Vue 级联组件编写
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # 级联组件编写
 
 ## 项目构建

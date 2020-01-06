@@ -1,5 +1,5 @@
 ---
-title: 监视数据变化 - watch
+title: vue-api 监视数据变化 - watch
 date: 2019-08-26
 categories: article
 author: Random

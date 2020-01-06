@@ -1,3 +1,13 @@
+---
+title: Vue优化
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # Vue优化
 
 ## vue的预渲染插件

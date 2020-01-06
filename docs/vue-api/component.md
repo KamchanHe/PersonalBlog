@@ -1,5 +1,5 @@
 ---
-title: 组件定义
+title: vue-api 组件定义
 date: 2019-08-26
 categories: article
 author: Random

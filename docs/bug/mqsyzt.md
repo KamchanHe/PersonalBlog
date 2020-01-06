@@ -4,10 +4,10 @@ date: 2019-12-26
 categories: article
 author: Kamchan
 tags:
-  - Javascript
-  - 后台
-  - ElementUI
-  - Vue
+- Javascript
+- 后台
+- ElementUI
+- Vue
 ---
 
 ## Vue2.0 使用 scss

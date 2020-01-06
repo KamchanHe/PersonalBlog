@@ -1,5 +1,5 @@
 ---
-title: 计算属性
+title: vue-api 计算属性
 date: 2019-08-26
 categories: article
 author: Random

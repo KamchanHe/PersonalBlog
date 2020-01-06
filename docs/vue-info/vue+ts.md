@@ -1,3 +1,13 @@
+---
+title: Vue + TS 开发应用
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # Vue + TS 开发应用
 
 使用vue-cli3创建项目，增加TypeScript

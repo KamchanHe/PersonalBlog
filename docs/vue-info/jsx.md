@@ -1,3 +1,13 @@
+---
+title: Vue render函数之JSX应用
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # render函数之JSX应用
 
 ## 一.模板缺陷

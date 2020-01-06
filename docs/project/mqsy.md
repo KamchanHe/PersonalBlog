@@ -4,12 +4,12 @@ date: 2019-12-30
 categories: article
 author: Kamchan
 keys:
-  - 'hjzZAI2ban'
+- 'hjzZAI2ban'
 tags:
-  - Javascript
-  - 后台
-  - ElementUI
-  - Vue
+- Javascript
+- 后台
+- ElementUI
+- Vue
 ---
 
 ## 美祺溯源中台系统展示

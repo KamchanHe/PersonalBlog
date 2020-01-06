@@ -1,5 +1,5 @@
 ---
-title: MVVM的介绍
+title: vue-api MVVM的介绍
 date: 2019-08-27
 categories: article
 author: Random

@@ -1,3 +1,13 @@
+---
+title: Vue原理剖析
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # Vue原理剖析
 
 ## 源码目录剖析

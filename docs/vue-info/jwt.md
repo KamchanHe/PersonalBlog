@@ -1,3 +1,13 @@
+---
+title: Vue JWT认证
+date: 2019-08-22
+categories: article
+author: 珠峰培训
+tags:
+- Vue
+- Webpack
+---
+
 # JWT认证
 
 ## 使用vue-cli3.0创建vue项目

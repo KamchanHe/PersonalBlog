@@ -1,5 +1,5 @@
 ---
-title: 移动端适配方案
+title: 移动端Rem适配方案
 date: 2019-11-19
 categories: article
 author: Kamchan
