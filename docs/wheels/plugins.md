@@ -8,6 +8,20 @@ tags:
 - Npm
 ---
 
+## Lottie
+
+- [Lottie](http://airbnb.io/lottie/#/)
+- [LottieFiles](https://lottiefiles.com/)
+
+Lottie支持多平台，使用同一个JSON动画文件，可在不同平台实现相同的效果。Android 通过Airbnb的开源项目lottie-android实现，最低支持 API 16;
+
+## AnimeJs
+
+- [AnimeJs](https://www.animejs.cn/)
+
+Anime.js (/ˈæn.ə.meɪ/) 是一个轻量的JavaScript 动画库， 拥有简单而强大的API。
+可对 CSS 属性、 SVG、 DOM 和JavaScript 对象进行动画。
+
 ## better-scroll
 
 - [better-scroll](https://github.com/ustbhuangyi/better-scroll/blob/master/README_zh-CN.md)
