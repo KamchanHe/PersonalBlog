@@ -7,6 +7,7 @@ tags:
 - Mac
 - MacOS Catalina
 - Javascript
+- Bug
 ---
 
 ## 自定义导航栏

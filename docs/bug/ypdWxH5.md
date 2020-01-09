@@ -10,6 +10,7 @@ tags:
 - Vue
 - H5
 - WeChat
+- Bug
 ---
 
 ## 导语

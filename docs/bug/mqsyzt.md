@@ -8,6 +8,7 @@ tags:
 - 后台
 - ElementUI
 - Vue
+- Bug
 ---
 
 ## Vue2.0 使用 scss
