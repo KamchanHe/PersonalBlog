@@ -10,11 +10,11 @@ tags:
   - Scroll
 ---
 
-scroll.vue
+## scroll.vue
 
 ```html
 <template>
-  <div ref="wrapper">
+  <div class="wrapper" ref="wrapper">
     <slot></slot>
   </div>
 </template>
@@ -23,19 +23,18 @@ scroll.vue
   import BScroll from 'better-scroll'
 
   export default {
-
     props: {
       /**************************** 基础功能 ******************************/
       /**
-        * 横轴方向初始化位置。
-        */
+       * 横轴方向初始化位置。
+       */
       startX: {
         type: Number,
         default: 0
       },
       /**
-        * 纵轴方向初始化位置。
-        */
+       * 纵轴方向初始化位置。
+       */
       startY: {
         type: Number,
         default: 0
@@ -139,11 +138,11 @@ scroll.vue
         default: true
       },
       /**
-        * 0 不派发scroll事件
-        * 1 滚动的时候会派发scroll事件，会截流,屏幕滑动超过一定时间后再派发
-        * 2 滚动的时候实时派发scroll事件，不会截流。
-        * 3 除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
-        */
+       * 0 不派发scroll事件
+       * 1 滚动的时候会派发scroll事件，会截流,屏幕滑动超过一定时间后再派发
+       * 2 滚动的时候实时派发scroll事件，不会截流。
+       * 3 除了实时派发scroll事件，在swipe的情况下仍然能实时派发scroll事件
+       */
       probeType: {
         type: Number,
         default: 1
@@ -163,8 +162,10 @@ scroll.vue
        * 那么配置规则为 {className:/(^|\s)test(\s|$)/}。
        */
       preventDefaultException: {
-        type:Object,
-        default: ()=> { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ }
+        type: Object,
+        default: () => {
+          tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/
+        }
       },
       /**
        * 一旦移动的过程中光标或手指离开滚动的容器，滚动会立刻停止。
@@ -267,7 +268,7 @@ scroll.vue
        * threshold 表示可滚动到下一个的阈值，
        * easing 表示滚动的缓动函数。
        */
-      snap:{
+      snap: {
         type: Boolean | Object,
         default: false
       },
@@ -317,11 +318,11 @@ scroll.vue
       pullUpLoad: {
         ype: Boolean | Object,
         default: false
-      },
+      }
     },
     mounted() {
       // 保证在DOM渲染完毕后初始化better-scroll
-      this.$nextTick(()=>{
+      this.$nextTick(() => {
         this._initScroll()
       })
     },
@@ -335,15 +336,15 @@ scroll.vue
           probeType: this.probeType,
           click: this.click,
           scrollX: this.scrollX,
-          pullDown:this.pullDown,
-          pullUp:this.pullUp,
-          pullDownRefresh:this.pullDownRefresh,
-          pullUpLoad:this.pullUpLoad
+          pullDown: this.pullDown,
+          pullUp: this.pullUp,
+          pullDownRefresh: this.pullDownRefresh,
+          pullUpLoad: this.pullUpLoad
         })
 
         // 是否派发滚动事件
         if (this.listenScroll) {
-          this.scroll.on('scroll', (pos) => {
+          this.scroll.on('scroll', pos => {
             this.$emit('scroll', pos)
           })
         }
@@ -352,7 +353,7 @@ scroll.vue
         if (this.pullup) {
           this.scroll.on('scrollEnd', () => {
             // 滚动到底部
-            if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+            if (this.scroll.y <= this.scroll.maxScrollY + 50) {
               this.$emit('scrollBottom')
             }
           })
@@ -360,7 +361,7 @@ scroll.vue
 
         // 是否派发顶部下拉事件，用于下拉刷新
         if (this.pulldown) {
-          this.scroll.on('touchEnd', (pos) => {
+          this.scroll.on('touchEnd', pos => {
             // 下拉动作
             if (pos.y > 50) {
               this.$emit('scrollTop')
@@ -429,23 +430,31 @@ scroll.vue
          *setTimeout(() => {
          *  this.refresh()
          *}, this.refreshDelay)
-        */
+         */
 
         //方案二
-        this.$nextTick(()=>{this.refresh()})
+        this.$nextTick(() => {
+          this.refresh()
+        })
       }
     }
   }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+</style>
 ```
 
 :::tip
 使用方法
 :::
 
-组件中
+## 组件中(竖向)
 
 ```html
 <template>
@@ -456,17 +465,17 @@ scroll.vue
     ref="scroll-box"
     :pullup="true"
     :pulldown="true"
-    @scrollBottom='scrollBottom'
-    @scrollTop='scrollTop'
-    :pullDownRefresh='pullDownRefresh'
-    :pullUpLoad='pullUpLoad'
+    @scrollBottom="scrollBottom"
+    @scrollTop="scrollTop"
+    :pullDownRefresh="pullDownRefresh"
+    :pullUpLoad="pullUpLoad"
   >
     ...
   </scroll>
 </template>
 
 <script>
-  import Scroll from "./scroll.vue";
+  import Scroll from './scroll.vue'
   export default {
     data() {
       return {
@@ -477,27 +486,27 @@ scroll.vue
         pullUpLoad: {
           threshold: 50
         }
-      };
+      }
     },
     components: {
       Scroll
     },
     methods: {
       scroll(pos) {
-        console.log(pos); //{x:0,y:0}
+        console.log(pos) //{x:0,y:0}
       },
       scrollTop() {
         //下拉刷新
         //刷新完后要执行执行完成函数
-        this.$refs.scrollBox.finishPullDown();
+        this.$refs.scrollBox.finishPullDown()
       },
       scrollBottom() {
         //上拉加载
         //刷新完后要执行执行完成函数
-        this.$refs.scrollBox.finishPullUp();
+        this.$refs.scrollBox.finishPullUp()
       }
     }
-  };
+  }
 </script>
 
 <style scoped>
@@ -505,6 +514,70 @@ scroll.vue
     width: 100%;
     height: 100%;
     overflow: hidden;
+  }
+</style>
+```
+
+## 组件中(横向)
+
+```html
+<template>
+  <scroll
+    :listenScroll="true"
+    :scrollX="true"
+    :scrollY="false"
+    eventPassthrough="vertical"
+    @scroll="scroll"
+    ref="scroll-box"
+  >
+    <div ref="singer-scroll-box" class="singer-scroll-box">
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
+  </scroll>
+</template>
+
+<script>
+  import Scroll from './scroll.vue'
+  export default {
+    data() {
+      return {}
+    },
+    components: {
+      Scroll
+    },
+    methods: {
+      scroll(pos) {
+        console.log(pos) //{x:0,y:0}
+      }
+    },
+    mounted() {
+      const length = this.$refs['singer-scroll-box'].children.length
+      const width = this.$refs['singer-scroll-box'].children[0].offsetWidth
+      this.$refs['singer-scroll-box'].style.width = length * width + 'px'
+      this.$nextTick(() => {
+        this.$refs['scroll-box']._initScroll()
+      })
+    }
+  }
+</script>
+
+<style scoped>
+  .scroll-box {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .singer-scroll-box {
+    display: flex;
   }
 </style>
 ```
