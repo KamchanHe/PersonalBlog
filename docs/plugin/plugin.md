@@ -27,7 +27,7 @@ tags:
 
 ### [Animate.css](https://daneden.github.io/animate.css/)
 
-- CSS3 动画库，也是目前最通用的动画库。
+- 齐全的CSS3动画库,想必这个不用介绍，大部分人都知道了。Animate CSS 可能是最著名的动画库之一。
 
 ### [Anime.js](http://animejs.com/)
 
@@ -48,7 +48,7 @@ tags:
 
 ### [Magic.css](https://github.com/miniMAC/magic)
 
-- css3 animation动画库
+- Magic CSS3 Animations 是 CSS3 动画的包，伴有特殊的效果，用户可以自由的在 web 项目中使用。这个动画库有一些非常漂亮和流畅的动画，特别是3D的。没什么好说的，自己去尝试。
 
 ### [Waves](https://github.com/fians/Waves)
 
@@ -61,6 +61,30 @@ tags:
 ### [Velocity.js](https://github.com/julianshapiro/velocity)
 
 - 一个功能齐全的 JavaScript 动画套件，包括诸如淡入淡出、滚动、滚动、停止、结束、翻转等动画效果。
+
+### [Animista](https://animista.net/)
+
+- Animista是一个在线动画生成器，同时也是一个动画库，它为我们提供了选择不同的动画(例如entrance/exist),除了可以选择某个动画（例如，scale-in）外，甚至还可以为该动画选择不同的展示效果（例如： scale-in-right）。允许我们定制动画的某些部分(duration,delay,direction),生成CSS代码,下载代码
+
+### [Vivify](http://vivify.mkcreative.cz/)
+
+- 一个更加丰富css动画库,Vivify 是一个动画库，可以看作是Animate CSS的增强版。它们的工作方式完全相同，有Animate CSS的大多数类且还扩展了一些。
+
+### [cssanimation.io](http://cssanimation.io/index.html)
+
+- cssanimation.io是一大堆不同动画的集合，总共大概有200个，这很强大。如果你连在这里都没有找到你所需的动画，那么在其它也将很难找到。它的工作原理与 Animista 类似。例如，可以选择一个动画并直接从站点获取代码，或者也可以下载整个库。
+
+### [Angrytools](https://angrytools.com/css/animation/)
+
+- 如果使用不同的生成器，Angrytools实际上是一个集合，其中还包括CSS动画生成器。它可能不像Animista那么复杂，但我觉得这个也很不错。这个站点还提供了一些自定义动画的特性，比如动画的持续时间或延迟。但是我喜欢的是，我们可以在其展示时间轴上添加自定义的keyframes，然后可以直接在其中编写代码。 另外，也可以编辑现有的。
+
+### [WickedCSS](http://kristofferandreasen.github.io/wickedCSS/#)
+
+- WickedCSS是一个小的CSS动画库，它没有太多的动画变体，但至少有很大的变化。 其中大多数是我们已经熟悉的基础知识，但它们确实很干净。
+
+### [CSShake](http://elrumordelaluz.github.io/csshake/)
+
+- 顾名思义，CSShake是一个CSS动画库，其中包含不同类型的震动动画。
 
 ## 滚动库
 

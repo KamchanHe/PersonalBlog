@@ -30,18 +30,52 @@ module.exports = {
     huawei: true,
     repo: 'https://github.com/KamchanHe/KamchanHe.github.io', //GitHub默认配置
     // type:'blog',//博客大头模式
+    // friendLink: [
+    //   {
+    //     title: 'vuepress-theme-reco',
+    //     desc: 'A simple and beautiful vuepress Blog & Doc theme.',
+    //     avatar:
+    //       'https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png',
+    //     link: 'https://vuepress-theme-reco.recoluan.com'
+    //   },
+    //   {
+    //     title: '午后南杂',
+    //     desc: 'Enjoy when you can, and endure when you must.',
+    //     email: 'recoluan@qq.com',
+    //     link: 'https://www.recoluan.com'
+    //   }
+    // ],
+    sidebar: 'auto',
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
-    // 最后更新时间
+    // 博客配置
+    blogConfig: {
+      category: {
+        location: 2, // 在导航栏菜单中所占的位置，默认2
+        text: 'Category' // 默认文案 “分类”
+      },
+      tag: {
+        location: 3, // 在导航栏菜单中所占的位置，默认3
+        text: 'Tag' // 默认文案 “标签”
+      }
+    },
     lastUpdated: 'Last Updated',
     record: '粤ICP备19023908号-1',
+    recordLink: 'http://www.beian.miit.gov.cn/',
     startYear: '2019',
     author: 'Kamchan',
     logo: 'https://kamchan.oss-cn-shenzhen.aliyuncs.com/logo.png',
-    // valineConfig: { //留言版
-    //   appId: 'mX1T7Ghg0ouHlK8wQv1dCPbj-gzGzoHsz',// your appId
-    //   appKey: 'gyK6CKRbwGB8MdxF7LsHAQnF', // your appKey
+    // vssueConfig: {
+    //   platform: 'github',
+    //   owner: 'Kamchan',
+    //   repo: 'Kamchan House',
+    //   clientId: 'fb3a3861cfb310fce0e2',
+    //   clientSecret: 'be991c53264a7e8a3818b95a8be4f30aad64f73d'
     // },
-    // plugins: ['@vuepress/last-updated'],
+    valineConfig: {
+      //留言版
+      appId: 'NE1XRs9MbGtGdY9iDX98mCCw-gzGzoHsz', // your appId
+      appKey: 'BhP1EPqoCEbD2NKYfXwoIpkG' // your appKey
+    },
     // keyPage: {
     //       keys: ['123456'],
     //       color: '#42b983', // 登录页动画球的颜色
@@ -52,7 +86,7 @@ module.exports = {
       { text: 'wheels', link: '/wheels/store.md', icon: 'reco-api' },
       {
         text: '开发',
-        icon: 'reco-document',
+        icon: 'reco-blog',
         items: [
           { text: 'Vue的api', link: '/vue-api/introduce' },
           { text: 'Vue进阶教程', link: '/vue-info/components' },
@@ -72,8 +106,16 @@ module.exports = {
           { text: '接码平台', link: '/tools/sms-code' }
         ]
       },
-      { text: "Plugin", link: "/plugin/plugin", icon: "reco-gitlab" },
-      // { text: "Project", link: "/project/home", icon: "reco-gitlab" },
+      { text: 'Plugin', link: '/plugin/plugin', icon: 'reco-gitlab' },
+      { text: 'Technology',
+        icon: 'reco-huawei',
+        items: [
+          { text: 'iOS上用python爬小说/图片', link: '/technology/01'},
+          { text: '0元获得100万TB大小的云盘', link: '/technology/02'},
+          { text: '国内直连谷歌云盘', link: '/technology/03'},
+        ]
+      },
+      { text: 'Project', link: '/project/home', icon: 'reco-lock' },
       { text: 'BUG', link: '/bug/wxLudan', icon: 'reco-document' },
       { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' }
       // 下拉列表
@@ -142,7 +184,7 @@ module.exports = {
       ],
       '/project/': [
         ['/project/home', '项目展示'],
-        ['/project/mqsy', '美祺溯源中台']
+        ['/project/mqsy', '美祺溯源中台(企业)']
       ],
       '/flexible/': [
         ['/flexible/flexible', 'Flexible实现淘宝H5页面的终端适配']
@@ -170,7 +212,12 @@ module.exports = {
         ['/wheels/countdown.md', '翻牌倒计时'],
         ['/wheels/framework.md', '常用框架']
       ],
-      '/tools/': [['/tools/sms-code', '接码平台']]
+      '/tools/': [['/tools/sms-code', '接码平台']],
+      '/technology/':[
+        ['/technology/01.md', 'iOS用python爬小说/图片'],
+        ['/technology/02.md', '0元获得100万TB大小的云盘'],
+        ['/technology/03.md', '国内直连谷歌云盘'],
+      ]
     }
   },
   configureWebpack: {
@@ -189,8 +236,6 @@ module.exports = {
         clean: true
       }
     ],
-    [
-      '@vuepress-reco/vuepress-plugin-loading-page'
-    ]
+    ['@vuepress-reco/vuepress-plugin-loading-page']
   ]
 }
