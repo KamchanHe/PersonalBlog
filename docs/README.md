@@ -17,6 +17,7 @@ features:
 ## 新增 [iOS上用python爬小说/图片](/technology/01.html)
 ## 新增 [0元获得100万TB大小的云盘](/technology/02.html)
 ## 新增 [国内直连谷歌云盘](/technology/03.html)
+## 新增 [任意转存文件到自己的共享盘](/technology/04.html)
 ## 新增 [H5-VUE REM+VW](/rem/rem.html#h5-vue-rem-vw-我最常用)
 ## 添加 [Vue3.0上遇到的Lodash使用问题](/bug/lodash.html)
 ## 添加 [插件库](/plugin/plugin.html)

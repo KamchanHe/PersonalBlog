@@ -113,6 +113,7 @@ module.exports = {
           { text: 'iOS上用python爬小说/图片', link: '/technology/01'},
           { text: '0元获得100万TB大小的云盘', link: '/technology/02'},
           { text: '国内直连谷歌云盘', link: '/technology/03'},
+          { text: '任意转存文件到自己的共享盘', link: '/technology/04'},
         ]
       },
       { text: 'Project', link: '/project/home', icon: 'reco-lock' },
@@ -217,6 +218,7 @@ module.exports = {
         ['/technology/01.md', 'iOS用python爬小说/图片'],
         ['/technology/02.md', '0元获得100万TB大小的云盘'],
         ['/technology/03.md', '国内直连谷歌云盘'],
+        ['/technology/04.md', '任意转存文件到自己的共享盘'],
       ]
     }
   },
