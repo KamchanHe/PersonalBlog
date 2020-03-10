@@ -49,14 +49,14 @@ module.exports = {
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
     // 博客配置
     blogConfig: {
-      category: {
-        location: 2, // 在导航栏菜单中所占的位置，默认2
-        text: 'Category' // 默认文案 “分类”
-      },
-      tag: {
-        location: 3, // 在导航栏菜单中所占的位置，默认3
-        text: 'Tag' // 默认文案 “标签”
-      }
+      // category: {
+      //   location: 2, // 在导航栏菜单中所占的位置，默认2
+      //   text: 'Category' // 默认文案 “分类”
+      // },
+      // tag: {
+      //   location: 3, // 在导航栏菜单中所占的位置，默认3
+      //   text: 'Tag' // 默认文案 “标签”
+      // }
     },
     lastUpdated: 'Last Updated',
     record: '粤ICP备19023908号-1',
@@ -113,8 +113,13 @@ module.exports = {
           { text: 'iOS上用python爬小说/图片', link: '/technology/01'},
           { text: '0元获得100万TB大小的云盘', link: '/technology/02'},
           { text: '国内直连谷歌云盘', link: '/technology/03'},
-          { text: '任意转存文件到自己的共享盘', link: '/technology/04'},
+          { text: '任意转存文件到自己的共享盘', link: '/technology/04'}
         ]
+      },
+      { 
+        text: 'Personal',
+        icon: 'reco-lock',
+        link: '/lockPage/01.md'
       },
       { text: 'Project', link: '/project/home', icon: 'reco-lock' },
       { text: 'BUG', link: '/bug/wxLudan', icon: 'reco-document' },
@@ -196,6 +201,7 @@ module.exports = {
         ['/wheels/store.md', 'Vue小型项目状态管理'],
         ['/wheels/penetration.md', '内网穿透'],
         ['/wheels/utils.md', 'Utils'],
+        ['/wheels/jscsv.md', 'JS生成CSV文件'],
         ['/wheels/plugins.md', '常用插件'],
         ['/wheels/ios.md', 'iOS设备开发参数'],
         ['/wheels/lodash.md', 'Lodash.js'],
@@ -218,7 +224,10 @@ module.exports = {
         ['/technology/01.md', 'iOS用python爬小说/图片'],
         ['/technology/02.md', '0元获得100万TB大小的云盘'],
         ['/technology/03.md', '国内直连谷歌云盘'],
-        ['/technology/04.md', '任意转存文件到自己的共享盘'],
+        ['/technology/04.md', '任意转存文件到自己的共享盘']
+      ],
+      '/lockPage':[
+        ['/lockPage/01.md', '构建一个小型的证券知识图谱']
       ]
     }
   },
@@ -238,6 +247,7 @@ module.exports = {
         clean: true
       }
     ],
-    ['@vuepress-reco/vuepress-plugin-loading-page']
+    ['@vuepress-reco/vuepress-plugin-loading-page'],
+    ['flowchart']
   ]
 }
