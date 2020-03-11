@@ -201,6 +201,7 @@ module.exports = {
         ['/wheels/store.md', 'Vue小型项目状态管理'],
         ['/wheels/penetration.md', '内网穿透'],
         ['/wheels/utils.md', 'Utils'],
+        ['/wheels/requestAnimationFrame.md', 'RequestAnimationFrame'],
         ['/wheels/jscsv.md', 'JS生成CSV文件'],
         ['/wheels/plugins.md', '常用插件'],
         ['/wheels/ios.md', 'iOS设备开发参数'],
