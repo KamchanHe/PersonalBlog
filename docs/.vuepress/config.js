@@ -93,7 +93,10 @@ module.exports = {
           { text: 'webpack', link: '/webpack/module' },
           { text: 'flexible移动端适配', link: '/flexible/flexible' },
           { text: 'vw实现移动端适配', link: '/vw/vw' },
-          { text: '移动端适配方案', link: '/rem/rem' }
+          { text: '移动端适配方案', link: '/rem/rem' },
+          { text: '移动端1px解决方案', link: '/tips/1px'},
+          { text: '纯CSS按钮点击特效', link: '/tips/scatteringButton'},
+          { text: 'vue实现页面生成海报', link: '/tips/poster'}
         ]
       },
       {
@@ -229,6 +232,11 @@ module.exports = {
       ],
       '/lockPage':[
         ['/lockPage/01.md', '构建一个小型的证券知识图谱']
+      ],
+      '/tips':[
+        ['/tips/1px.md', '移动端1px解决方案'],
+        ['/tips/scatteringButton.md', '纯CSS按钮点击特效'],
+        ['/tips/poster.md', 'vue实现页面生成海报']
       ]
     }
   },
