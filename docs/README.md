@@ -13,7 +13,9 @@ features:
 - title: 
   details:
 ---
-
+## 新增 [vue实现页面生成海报](/tips/poster.html)
+## 新增 [移动端1px解决方案](/tips/1px.html)
+## 新增 [纯CSS按钮点击特效](/tips/scatteringButton.html)
 ## 新增 [iOS上用python爬小说/图片](/technology/01.html)
 ## 新增 [0元获得100万TB大小的云盘](/technology/02.html)
 ## 新增 [国内直连谷歌云盘](/technology/03.html)
