@@ -94,9 +94,11 @@ module.exports = {
           { text: 'flexible移动端适配', link: '/flexible/flexible' },
           { text: 'vw实现移动端适配', link: '/vw/vw' },
           { text: '移动端适配方案', link: '/rem/rem' },
-          { text: '移动端1px解决方案', link: '/tips/1px'},
-          { text: '纯CSS按钮点击特效', link: '/tips/scatteringButton'},
-          { text: 'vue实现页面生成海报', link: '/tips/poster'}
+          { text: '移动端1px解决方案', link: '/tips/1px' },
+          { text: '纯CSS按钮点击特效', link: '/tips/scatteringButton' },
+          { text: 'vue实现页面生成海报', link: '/tips/poster' },
+          { text: 'canvas饼状图', link: '/tips/canvasPie' },
+          { text: 'canvas画板', link: '/tips/canvasBoard' }
         ]
       },
       {
@@ -110,16 +112,17 @@ module.exports = {
         ]
       },
       { text: 'Plugin', link: '/plugin/plugin', icon: 'reco-gitlab' },
-      { text: 'Technology',
+      {
+        text: 'Technology',
         icon: 'reco-huawei',
         items: [
-          { text: 'iOS上用python爬小说/图片', link: '/technology/01'},
-          { text: '0元获得100万TB大小的云盘', link: '/technology/02'},
-          { text: '国内直连谷歌云盘', link: '/technology/03'},
-          { text: '任意转存文件到自己的共享盘', link: '/technology/04'}
+          { text: 'iOS上用python爬小说/图片', link: '/technology/01' },
+          { text: '0元获得100万TB大小的云盘', link: '/technology/02' },
+          { text: '国内直连谷歌云盘', link: '/technology/03' },
+          { text: '任意转存文件到自己的共享盘', link: '/technology/04' }
         ]
       },
-      { 
+      {
         text: 'Personal',
         icon: 'reco-lock',
         link: '/lockPage/01.md'
@@ -224,19 +227,19 @@ module.exports = {
         ['/wheels/framework.md', '常用框架']
       ],
       '/tools/': [['/tools/sms-code', '接码平台']],
-      '/technology/':[
+      '/technology/': [
         ['/technology/01.md', 'iOS用python爬小说/图片'],
         ['/technology/02.md', '0元获得100万TB大小的云盘'],
         ['/technology/03.md', '国内直连谷歌云盘'],
         ['/technology/04.md', '任意转存文件到自己的共享盘']
       ],
-      '/lockPage':[
-        ['/lockPage/01.md', '构建一个小型的证券知识图谱']
-      ],
-      '/tips':[
+      '/lockPage': [['/lockPage/01.md', '构建一个小型的证券知识图谱']],
+      '/tips': [
         ['/tips/1px.md', '移动端1px解决方案'],
         ['/tips/scatteringButton.md', '纯CSS按钮点击特效'],
-        ['/tips/poster.md', 'vue实现页面生成海报']
+        ['/tips/poster.md', 'vue实现页面生成海报'],
+        ['/tips/canvasPie.md', 'canvas饼状图'],
+        ['/tips/canvasBoard.md', 'canvas画板']
       ]
     }
   },

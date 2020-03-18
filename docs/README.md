@@ -13,6 +13,8 @@ features:
 - title: 
   details:
 ---
+## 新增 [canvas饼图](/tips/canvasPie.html)
+## 新增 [canvas画板](/tips/canvasBoard.html)
 ## 新增 [vue实现页面生成海报](/tips/poster.html)
 ## 新增 [移动端1px解决方案](/tips/1px.html)
 ## 新增 [纯CSS按钮点击特效](/tips/scatteringButton.html)
