@@ -83,7 +83,33 @@ module.exports = {
     //     },
     nav: [
       { text: '首页', link: '/', icon: 'reco-home' }, // 内部链接 以docs为根目录
-      { text: 'wheels', link: '/wheels/store.md', icon: 'reco-api' },
+      {
+        text: 'wheels',
+        icon: 'reco-api',
+        items: [
+          { text: 'Vue小型项目状态管理', link: '/wheels/store.md' },
+          { text: '内网穿透', link: '/wheels/penetration.md' },
+          { text: '移动端自适应初始化', link: '/wheels/reset.md' },
+          { text: 'Utils-常用方法', link: '/wheels/utils.md' },
+          { text: 'RequestAnimationFrame', link: '/wheels/requestAnimationFrame.md' },
+          { text: 'JS生成CSV文件', link: '/wheels/jscsv.md' },
+          { text: '常用插件', link: '/wheels/plugins.md' },
+          { text: 'iOS设备开发参数', link: '/wheels/ios.md' },
+          { text: 'Lodash.js', link: '/wheels/lodash.md' },
+          { text: 'Immutable.js', link: '/wheels/Immutable.md' },
+          { text: 'Vue EventBus', link: '/wheels/eventBus.md' },
+          { text: '手写各种源码', link: '/wheels/handwritten.md' },
+          { text: 'Axios封装', link: '/wheels/axios.md' },
+          { text: '服务端token', link: '/wheels/jwt_token.md' },
+          { text: 'Vue-BetterScroll-Scroll', link: '/wheels/scroll.md' },
+          { text: 'Vue-BetterScroll-Slier', link: '/wheels/slider.md' },
+          { text: '服务端+客户端 socket', link: '/wheels/socket.md' },
+          { text: 'Vue-progress', link: '/wheels/progress.md' },
+          { text: '自封装VueScroll', link: '/wheels/vueScroll.md' },
+          { text: '翻牌倒计时', link: '/wheels/countdown.md' },
+          { text: '常用框架', link: '/wheels/framework.md' }
+        ]
+      },
       {
         text: '开发',
         icon: 'reco-blog',
@@ -121,6 +147,11 @@ module.exports = {
           { text: '国内直连谷歌云盘', link: '/technology/03' },
           { text: '任意转存文件到自己的共享盘', link: '/technology/04' }
         ]
+      },
+      {
+        text: 'FTF',
+        icon: 'reco-sf',
+        link: '/ftf/ftf.md'
       },
       {
         text: 'Personal',
@@ -214,9 +245,9 @@ module.exports = {
         ['/wheels/lodash.md', 'Lodash.js'],
         ['/wheels/Immutable.md', 'Immutable.js'],
         ['/wheels/eventBus.md', 'Vue EventBus'],
-        ['/wheels/debounce&throttle.md', '防抖 & 节流'],
-        ['/wheels/axios.md', 'axios请求封装'],
-        ['/wheels/ajax.md', '做项目用过的axios封装'],
+        ['/wheels/handwritten.md', '手写各种源码'],
+        ['/wheels/axios.md', 'Axios封装'],
+        ['/wheels/reset.md', '移动端自适应初始化'],
         ['/wheels/jwt_token.md', '服务端Token'],
         ['/wheels/scroll.md', 'Vue-scroll'],
         ['/wheels/slider.md', 'Vue-slider'],

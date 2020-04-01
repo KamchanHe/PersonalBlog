@@ -13,6 +13,7 @@ features:
 - title: 
   details:
 ---
+## 新增 [各种手写源码](/wheels/handwritten.html)
 ## 新增 [canvas饼图](/tips/canvasPie.html)
 ## 新增 [canvas画板](/tips/canvasBoard.html)
 ## 新增 [vue实现页面生成海报](/tips/poster.html)
@@ -27,4 +28,4 @@ features:
 ## 添加 [插件库](/plugin/plugin.html)
 ## 完善 [框架列表和挑选自己比较喜欢的](/wheels/framework.html#个人前端比较喜欢的-偏向pc)
 ## 添加 [接码平台](/tools/sms-code.html#国内)、[新项目问题](/bug/mqsyzt.html)、[Wheels](/wheels/store.html)
-## 添加 [Vue项目启动时自动获取本机 IP 地址](/wheels/utils.html#vue项目启动时自动获取本机-ip-地址)
+## 添加 [Vue项目启动时自动获取本机 IP 地址](/wheels/utils.html#vue-项目启动时获取本机-ip-地址)
