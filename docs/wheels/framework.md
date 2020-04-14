@@ -165,6 +165,20 @@ tags:
 - Muse UI 自定义主题方式极为优雅，仅需少量代码即可完成主题样式替换。
 - Muse UI 基于 Vue2.0 开发，Vue2.0是当下最快的前端框架之一，小巧，api友好，可用于开发的复杂单页应用
 
+## 小程序框架
+
+### [mpx](https://github.com/didi/mpx)
+
+- Mpx，一款具有优秀开发体验和深度性能优化的增强型小程序开发框架
+
+### [Chameleon](https://cml.js.org/docs/introduction.html)
+
+- CML (Chameleon) 是一个小程序跨端开发统一解决方案，它可以像变色龙一样适应不同的环境。一次开发，多端运行，一端所见即多端所见。
+
+:::tip 小程序框架运行时性能排名为
+[mpx](https://github.com/didi/mpx) > [uniapp](https://github.com/dcloudio/uni-app) > [chameleon](https://github.com/didi/chameleon)> [wepy2](https://github.com/Tencent/wepy) > [mpvue](https://github.com/Meituan-Dianping/mpvue) > [taro next](https://github.com/NervJS/taro) > [kbone](https://github.com/Tencent/kbone)
+:::
+
 ##  个人比较喜欢的(偏向移动)
 
 ### [Framework7](http://framework7.taobao.org/)
