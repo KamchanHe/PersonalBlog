@@ -90,6 +90,7 @@ module.exports = {
           { text: 'Vue小型项目状态管理', link: '/wheels/store.md' },
           { text: '内网穿透', link: '/wheels/penetration.md' },
           { text: '移动端自适应初始化', link: '/wheels/reset.md' },
+          { text: '数字递增动画', link: '/wheels/counter.md' },
           { text: 'Utils-常用方法', link: '/wheels/utils.md' },
           { text: 'RequestAnimationFrame', link: '/wheels/requestAnimationFrame.md' },
           { text: 'JS生成CSV文件', link: '/wheels/jscsv.md' },
@@ -237,6 +238,7 @@ module.exports = {
       '/wheels/': [
         ['/wheels/store.md', 'Vue小型项目状态管理'],
         ['/wheels/penetration.md', '内网穿透'],
+        ['/wheels/counter.md', '数字递增动画'],
         ['/wheels/utils.md', 'Utils'],
         ['/wheels/requestAnimationFrame.md', 'RequestAnimationFrame'],
         ['/wheels/jscsv.md', 'JS生成CSV文件'],
