@@ -249,6 +249,130 @@ FireFox 不支持的元素有：input,select,textarea
 IE 不支持的元素有：input[type=text],textarea
 :::
 
+## border.scss
+
+```scss
+$scale2: 0.5;
+$scale3: 0.33;
+$color: #eeeeee;
+$radius: 2px;
+$style: solid;
+$width2: 200%;
+$width3: 300%;
+
+@mixin min-device-pixel-ratio {
+  @media screen and (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2) {
+    transform: scale($scale2);
+    width: $width2;
+    transform-origin: 0 0;
+  }
+  @media screen and (min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3) {
+    transform: scale($scale3);
+    width: $width3;
+    transform-origin: 0 0;
+  }
+}
+
+@mixin vertical-min-device-pixel-ratio {
+  @media screen and (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2) {
+    transform: scale($scale2);
+    width: $width2;
+    height: $width2;
+    transform-origin: 0 0;
+  }
+  @media screen and (min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3) {
+    transform: scale($scale3);
+    width: $width3;
+    height: $width3;
+    transform-origin: 0 0;
+  }
+}
+
+.border-1px {
+  position: relative;
+  &::before {
+    content: '';
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    transform-origin: 0 0;
+    border: 1px $style $color;
+    border-radius: $radius;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    @media screen and (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2) {
+      width: 200%;
+      border-radius: $radius * 2;
+      transform: scale(0.5);
+    }
+    @media screen and (min-device-pixel-ratio: 3),
+      (-webkit-min-device-pixel-ratio: 3) {
+      width: 300%;
+      border-radius: $radius * 3;
+      transform: scale(0.33);
+    }
+  }
+}
+
+.border-top-1px {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    border-top: 1px $style $color;
+    @include min-device-pixel-ratio;
+  }
+}
+.border-right-1px {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    right: 0;
+    top: 0;
+    border-left: 1px $style $color;
+    @include vertical-min-device-pixel-ratio;
+  }
+}
+.border-bottom-1px {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    bottom: 0;
+    border-bottom: 1px $style $color;
+    @include min-device-pixel-ratio;
+  }
+}
+.border-left-1px {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    border-left: 1px $style $color;
+    @include vertical-min-device-pixel-ratio;
+  }
+}
+```
+
 ## border.less
 
 ```less
@@ -326,6 +450,18 @@ IE 不支持的元素有：input[type=text],textarea
     top: 0;
     height: 100%;
     border-left: 1px @style @color;
+    transform-origin: 0 0;
+    .min-device-pixel-ratio(scaleX(0.5), scaleX(0.33));
+  }
+}
+.border-right-1px(@color: #DDD, @style: solid) {
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border-right: 1px @style @color;
     transform-origin: 0 0;
     .min-device-pixel-ratio(scaleX(0.5), scaleX(0.33));
   }

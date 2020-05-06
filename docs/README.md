@@ -1,6 +1,6 @@
 ---
 home: true
-actionText: Just Do It →
+actionText: About Me →
 heroImage: https://kamchan.oss-cn-shenzhen.aliyuncs.com/logo.png
 isShowTitleInHome: false
 heroImageStyle: {
@@ -8,11 +8,14 @@ heroImageStyle: {
   display: block,
   margin: '3rem auto 1.5rem'
 }
-actionLink: /vue-info/components
+actionLink: 'http://resume.kamchan.top'
 features:
 - title: 
   details:
 ---
+## 新增 [canvas进度圆环](/tips/canvasRing.html)
+## 新增 [svg进度圆环](/tips/svgRing.html)
+## 新增 [css进度圆环](/tips/cssRing.html)
 ## 新增 [各种手写源码](/wheels/handwritten.html)
 ## 新增 [canvas饼图](/tips/canvasPie.html)
 ## 新增 [canvas画板](/tips/canvasBoard.html)

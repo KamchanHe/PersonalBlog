@@ -28,7 +28,7 @@ module.exports = {
   ],
   themeConfig: {
     huawei: true,
-    repo: 'https://github.com/KamchanHe/KamchanHe.github.io', //GitHub默认配置
+    repo: 'https://github.com/KamchanHe', //GitHub默认配置
     // type:'blog',//博客大头模式
     // friendLink: [
     //   {
@@ -125,7 +125,10 @@ module.exports = {
           { text: '纯CSS按钮点击特效', link: '/tips/scatteringButton' },
           { text: 'vue实现页面生成海报', link: '/tips/poster' },
           { text: 'canvas饼状图', link: '/tips/canvasPie' },
-          { text: 'canvas画板', link: '/tips/canvasBoard' }
+          { text: 'canvas画板', link: '/tips/canvasBoard' },
+          { text: 'css实现进度圆环', link: '/tips/cssRing' },
+          { text: 'svg实现进度圆环', link: '/tips/svgRing' },
+          { text: 'canvas实现进度圆环', link: '/tips/canvasRing' }
         ]
       },
       {
@@ -266,13 +269,16 @@ module.exports = {
         ['/technology/03.md', '国内直连谷歌云盘'],
         ['/technology/04.md', '任意转存文件到自己的共享盘']
       ],
-      '/lockPage': [['/lockPage/01.md', '构建一个小型的证券知识图谱']],
-      '/tips': [
+      '/lockPage/': [['/lockPage/01.md', '构建一个小型的证券知识图谱']],
+      '/tips/': [
         ['/tips/1px.md', '移动端1px解决方案'],
         ['/tips/scatteringButton.md', '纯CSS按钮点击特效'],
         ['/tips/poster.md', 'vue实现页面生成海报'],
         ['/tips/canvasPie.md', 'canvas饼状图'],
-        ['/tips/canvasBoard.md', 'canvas画板']
+        ['/tips/canvasBoard.md', 'canvas画板'],
+        ['/tips/cssRing.md', 'css实现进度圆环'],
+        ['/tips/svgRing.md', 'svg实现进度圆环'],
+        ['/tips/canvasRing.md', 'canvas实现进度圆环']
       ]
     }
   },
