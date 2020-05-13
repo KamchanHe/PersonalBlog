@@ -1695,6 +1695,35 @@ import router from '@/router'
 import Qs from 'qs'
 import app from '@/main'
 
+// 同一地址的表单如果多次请求则自动取消 避免重复提交表单
+const pending = [] // 声明一个数组用于存储每个ajax请求的队列
+const cancelToken = axios.CancelToken // 初始化取消请求的构造函数
+let arr = [] // 区分是请求还是响应的头部
+
+/**
+ * @param {请求体信息} config
+ * @param {直接执行的cancel函数，执行即可取消请求} f
+ */
+const removePending = (config, f) => {
+  arr = config.url
+  arr = arr[arr.length - 1]
+  const flagUrl = arr + '&' + config.method // 每次请求存储在请求中队列的元素关键值
+
+  // 当前请求存在队列中
+  if (pending.indexOf(flagUrl) !== -1) {
+    if (f) {
+      f() // 取消请求
+    } else {
+      pending.splice(pending.indexOf(flagUrl), 1) // 取消函数不存在，则从队列中删除该请求
+    }
+  } else {
+    // 当前请求不在队列中
+    if (f) {
+      pending.push(flagUrl)
+    }
+  }
+}
+
 // cookie跨域配置
 axios.defaults.withCredentials = true
 
@@ -1719,6 +1748,11 @@ class FetchData {
           })
           return config
         }
+        if (config.method === 'post') {
+          config.cancelToken = new cancelToken((c) => {
+            removePending(config, c)
+          })
+        }
         num++
         // TODO: 打开loading
         loading ? app.$loading.show() : app.$loading.hide()
@@ -1739,6 +1773,9 @@ class FetchData {
 
     instance.interceptors.response.use(
       (res) => {
+        if (response.config.method === 'post') {
+          removePending(response.config)
+        }
         num--
         if (num === 0) {
           // TODO: 关闭loading
@@ -1841,12 +1878,14 @@ class FetchData {
           }
           return Promise.reject(error.response)
         } else {
-          // TODO: 断网啦~
-          app.$toast.show({
-            text: error || '断网啦~',
-            icon: 'fail',
-            duration: 1500,
-          })
+          if (error.message) {
+            // TODO: 断网啦~
+            app.$toast.show({
+              text: error || '断网啦~',
+              icon: 'fail',
+              duration: 1500,
+            })
+          }
           return Promise.reject(error.response)
         }
       }
@@ -1941,6 +1980,34 @@ router.afterEach((route) => {
 })
 ```
 
+### directive
+
+button 加上指令即可在自定义秒数或者默认的 3 秒内不可再点击
+
+```html
+<button @click="点击事件" v-preventReClick="1000"></button>
+<button @click="点击事件" v-preventReClick></button>
+```
+
+```js
+import Vue from 'vue'
+
+const preventReClick = Vue.directive('preventReClick', {
+  inserted: function(el, binding) {
+    el.addEventListener('click', () => {
+      if (!el.disabled) {
+        el.disabled = true
+        setTimeout(() => {
+          el.disabled = false
+        }, binding.value || 3000) // 传入绑定值就使用，默认3000毫秒内不可重复触发
+      }
+    })
+  },
+})
+
+export { preventReClick }
+```
+
 ### main.js
 
 ```js
@@ -1949,6 +2016,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import '@/assets/css/reset.scss'
+import { preventReClick } from '@/utils/directive'
 
 import '@/permission'
 import http from '@/http/http'
