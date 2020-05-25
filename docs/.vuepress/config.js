@@ -128,7 +128,8 @@ module.exports = {
           { text: 'canvas画板', link: '/tips/canvasBoard' },
           { text: 'css实现进度圆环', link: '/tips/cssRing' },
           { text: 'svg实现进度圆环', link: '/tips/svgRing' },
-          { text: 'canvas实现进度圆环', link: '/tips/canvasRing' }
+          { text: 'canvas实现进度圆环', link: '/tips/canvasRing' },
+          { text: 'svg实现贝塞尔曲线动画', link: '/tips/svgBezier' }
         ]
       },
       {
@@ -227,7 +228,8 @@ module.exports = {
         ['/bug/wxLudan', '鲁蛋小程序开发遇到的问题'],
         ['/bug/ypdWxH5', '优普道H5开发遇到的问题'],
         ['/bug/mqsyzt', '美祺溯源中台开发遇到的问题'],
-        ['/bug/lodash', 'Vue3.0上遇到的Lodash使用问题']
+        ['/bug/lodash', 'Vue3.0上遇到的Lodash使用问题'],
+        ['/bug/quarklend', '日日币H5遇到的问题']
       ],
       '/project/': [
         ['/project/home', '项目展示'],
@@ -278,7 +280,8 @@ module.exports = {
         ['/tips/canvasBoard.md', 'canvas画板'],
         ['/tips/cssRing.md', 'css实现进度圆环'],
         ['/tips/svgRing.md', 'svg实现进度圆环'],
-        ['/tips/canvasRing.md', 'canvas实现进度圆环']
+        ['/tips/canvasRing.md', 'canvas实现进度圆环'],
+        ['/tips/svgBezier.md', 'svg实现贝塞尔曲线动画']
       ]
     }
   },
