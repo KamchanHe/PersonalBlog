@@ -229,7 +229,8 @@ module.exports = {
         ['/bug/ypdWxH5', '优普道H5开发遇到的问题'],
         ['/bug/mqsyzt', '美祺溯源中台开发遇到的问题'],
         ['/bug/lodash', 'Vue3.0上遇到的Lodash使用问题'],
-        ['/bug/quarklend', '日日币H5遇到的问题']
+        ['/bug/ypdQualification', '优普道资质网开发遇到的问题'],
+        ['/bug/quarklend', '日日币H5遇到的问题'],
       ],
       '/project/': [
         ['/project/home', '项目展示'],
