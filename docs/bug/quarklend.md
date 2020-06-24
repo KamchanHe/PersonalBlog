@@ -195,10 +195,11 @@ class FetchData {
 ## 自定义数字键盘
 
 ### 效果
+
 ![](https://kamchan.oss-cn-shenzhen.aliyuncs.com/numberInput.gif)
 
-
 ### 代码
+
 ```vue
 <template>
   <div>
@@ -519,4 +520,166 @@ export default {
   }
 }
 </style>
+```
+
+## 优化打包
+```
+npm i uglifyjs-webpack-plugin webpack-bundle-analyzer compression-webpack-plugin image-webpack-loader
+```
+
+去掉项目里 import引入的插件 通过cdn加速
+
+```js
+// 是否为生产环境
+const isProduction = process.env.NODE_ENV === 'production'
+// 本地环境是否需要使用cdn
+const devNeedCdn = true
+const cdn = {
+  externals: {
+    html2canvas: 'html2canvas',
+    lodash: '_',
+    vue: 'Vue',
+    vuex: 'Vuex',
+    'vue-router': 'VueRouter',
+    axios: 'axios',
+    'vue-clipboard2': 'VueClipboard',
+    moment: 'moment',
+    validator: 'validator',
+  },
+  css: [],
+  js: [
+    'https://cdn.bootcss.com/vue/2.5.17/vue.runtime.min.js',
+    'https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js',
+    'https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js',
+    'https://cdn.bootcdn.net/ajax/libs/qs/6.9.4/qs.min.js',
+    'https://cdn.bootcss.com/axios/0.18.0/axios.min.js',
+    'https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js',
+    'https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.15/lodash.min.js',
+    'https://cdn.jsdelivr.net/gh/eduardolundgren/tracking.js/build/tracking-min.js',
+    'https://cdn.jsdelivr.net/gh/eduardolundgren/tracking.js/build/data/face-min.js',
+    'https://cdn.bootcdn.net/ajax/libs/vue-clipboard2/0.3.1/vue-clipboard.min.js',
+    'https://cdn.bootcdn.net/ajax/libs/moment.js/2.26.0/moment.min.js',
+    'https://cdn.bootcdn.net/ajax/libs/validator/13.1.0/validator.min.js',
+  ],
+}
+// gzip压缩
+const CompressionPlugin = require('compression-webpack-plugin')
+// 代码压缩
+const UglifyJsPlugin = require('terser-webpack-plugin')
+// 配置别名
+// function resolve(dir) {
+//   return path.join(__dirname, dir)
+// }
+
+module.exports = {
+  // 基本路径
+  publicPath: process.env.NODE_ENV === 'production' ? '/dist/' : '/',
+  //打包时不要map文件
+  productionSourceMap: false,
+  // 输出文件目录
+  outputDir: 'dist',
+  // eslint-loader 是否在保存的时候检查
+  lintOnSave: true,
+  // css相关配置
+  css: {
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: false,
+    // 开启 CSS source maps?
+    sourceMap: false,
+    // css预设器配置项
+    loaderOptions: {},
+    // 启用 CSS modules for all css / pre-processor files.
+    requireModuleExtension: false,
+    // css预设器配置项
+    loaderOptions: {
+      // pass options to sass-loader
+      sass: {
+        // 引入全局变量样式
+        prependData: '@import "@/assets/css/reset.scss";',
+      },
+    },
+  },
+  transpileDependencies: ['vuex-persist'],
+  // webpack配置
+  chainWebpack: (config) => {
+    // config
+    //   .entry('index')
+    //   .add('babel-polyfill')
+    //   .end()
+    // 配置别名
+    // config.resolve.alias.set('@', resolve('src'))
+    // 注入cdn
+    config.plugin('html').tap((args) => {
+      if (isProduction || devNeedCdn) args[0].cdn = cdn
+      return args
+    })
+    /* 添加分析工具*/
+    if (isProduction) {
+      // 删除预加载
+      config.plugins.delete('preload')
+      config.plugins.delete('prefetch')
+      // 压缩代码
+      config.optimization.minimize(true)
+      // 分割代码
+      config.optimization.splitChunks({
+        chunks: 'all',
+      })
+      config
+        .plugin('webpack-bundle-analyzer')
+        .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+        .end()
+    }
+  },
+  configureWebpack: (config) => {
+    // 用cdn方式引入
+    if (isProduction || devNeedCdn) config.externals = cdn.externals
+    if (process.env.NODE_ENV === 'production') {
+      // 为生产环境修改配置...
+      config.mode = 'production'
+      config.plugins.push(
+        // gzip压缩
+        new CompressionPlugin({
+          test: /\.js$|\.html$|\.css/, //匹配文件名
+          threshold: 10240, //对超过10k的数据进行压缩
+          minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
+          deleteOriginalAssets: false, //是否删除原文件
+        })
+      )
+      config.plugins.push(
+        //生产环境自动删除console
+        new UglifyJsPlugin({
+          terserOptions: {
+            warnings: false,
+            compress: {
+              drop_debugger: true,
+              drop_console: true,
+            },
+          },
+          sourceMap: false,
+          parallel: true,
+        })
+      )
+    }
+  },
+
+  devServer: {
+    port: 9000,
+    open: true,
+    overlay: {
+      warnings: false,
+      errors: true,
+    },
+    host: '0.0.0.0',
+    useLocalIp: true,
+    proxy: {
+      '/api': {
+        target: `http://admin.jdcct.top`, //线上
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api',
+        },
+      },
+    },
+  },
+}
 ```
