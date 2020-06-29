@@ -523,11 +523,12 @@ export default {
 ```
 
 ## 优化打包
+
 ```
 npm i uglifyjs-webpack-plugin webpack-bundle-analyzer compression-webpack-plugin image-webpack-loader
 ```
 
-去掉项目里 import引入的插件 通过cdn加速
+去掉项目里 import 引入的插件 通过 cdn 加速
 
 ```js
 // 是否为生产环境
@@ -682,4 +683,589 @@ module.exports = {
     },
   },
 }
+```
+
+## 人脸识别
+
+### 效果
+
+![face](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/bug/quarklend/face.png)
+
+### 使用 Tracking.js
+
+在 index.html 引入 [tracking.js](https://github.com/eduardolundgren/tracking.js/blob/master/build/tracking-min.js) 和 [face.js](https://github.com/eduardolundgren/tracking.js/blob/master/build/data/face.js)
+
+#### index.html
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/eduardolundgren/tracking.js/build/tracking-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/eduardolundgren/tracking.js/build/data/face-min.js"></script>
+```
+
+#### face.vue
+
+```vue
+<template>
+  <div id="face">
+    <div v-show="showContainer" class="face-capture" id="face-capture">
+      <video ref="refVideo" id="video" autoplay></video>
+      <img
+        src="https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/bug/quarklend/video-cover.png"
+        alt="cover"
+        class="img-cover"
+      />
+      <div class="control-bg">
+        <div></div>
+      </div>
+      <div class="control-container face-capture">
+        <h2 class="title">{{ scanTip }}</h2>
+        <img
+          class="close"
+          src="https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/bug/quarklend/icon-clear.png"
+          alt=""
+          @click="back"
+        />
+        <canvas
+          ref="refCanvas"
+          :width="screenSize.width"
+          :height="screenSize.height"
+          :style="{ opacity: 0 }"
+        ></canvas>
+      </div>
+      <div
+        class="rect"
+        v-for="(item, index) in profile"
+        :key="index"
+        :style="{
+          width: item.width + 'px',
+          height: item.height + 'px',
+          left: item.left + 'px',
+          top: item.top + 'px',
+        }"
+      ></div>
+    </div>
+    <img v-show="!showContainer" :src="imgUrl" />
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Face',
+  data() {
+    return {
+      screenSize: { width: window.screen.width, height: window.screen.height }, // 屏幕数据
+      URL: null, // 当前页面URL
+      streamIns: null, // 视频流
+      showContainer: true, // 显示
+      tracker: null, // tracking实例
+      tipFlag: false, // 提示用户已经检测到
+      flag: false, // 判断是否已经拍照
+      context: null, // canvas上下文
+      profile: [], // 轮廓
+      removePhotoID: null, // 停止转换图片
+      scanTip: '人脸识别中...', // 提示文字
+      imgUrl: '', // base64格式图片
+      isClose: false, // 是否已关闭视频流
+    }
+  },
+  mounted() {
+    sessionStorage.removeItem('result')
+    this.playVideo()
+  },
+  destroyed() {
+    !this.isClose && this.close()
+  },
+  methods: {
+    /**
+     * @description: 获取用户媒体设备
+     * @param {视频配置} constrains
+     * @param {获取成功回调函数} success
+     * @param {获取失败回调函数} error
+     * @return: null
+     */
+    getUserMedia(constrains, success, error) {
+      if (navigator.mediaDevices.getUserMedia) {
+        //最新标准API
+        navigator.mediaDevices
+          .getUserMedia(constrains)
+          .then(success)
+          .catch(error)
+      } else if (navigator.webkitGetUserMedia) {
+        //webkit内核浏览器
+        navigator
+          .webkitGetUserMedia(constrains)
+          .then(success)
+          .catch(error)
+      } else if (navigator.mozGetUserMedia) {
+        //Firefox浏览器
+        navagator
+          .mozGetUserMedia(constrains)
+          .then(success)
+          .catch(error)
+      } else if (navigator.getUserMedia) {
+        //旧版API
+        navigator
+          .getUserMedia(constrains)
+          .then(success)
+          .catch(error)
+      } else {
+        this.scanTip = '你的浏览器不支持访问用户媒体设备'
+      }
+    },
+    /**
+     * @description: 获取用户媒体设备成功
+     * @param {stream} 视频流
+     * @return: null
+     */
+    success(stream) {
+      this.streamIns = stream
+      // webkit内核浏览器
+      this.URL = window.URL || window.webkitURL
+      if ('srcObject' in this.$refs.refVideo) {
+        this.$refs.refVideo.srcObject = stream
+      } else {
+        this.$refs.refVideo.src = this.URL.createObjectURL(stream)
+      }
+      this.$refs.refVideo.onloadedmetadata = (e) => {
+        this.$refs.refVideo.play()
+        this.initTracker()
+      }
+    },
+    /**
+     * @description: 获取用户媒体设备失败
+     * @param {e}
+     * @return: null
+     */
+    error(e) {
+      this.scanTip = '访问用户媒体失败' + e.name + ',' + e.message
+    },
+    /**
+     * @description: 开始视频流
+     * @return: null
+     */
+    playVideo() {
+      this.getUserMedia(
+        {
+          video: {
+            width: this.screenSize.width,
+            height: this.screenSize.height,
+            facingMode: 'user',
+          } /* 前置优先 */,
+        },
+        this.success,
+        this.error
+      )
+    },
+    // 人脸捕捉
+    initTracker() {
+      this.context = this.$refs.refCanvas.getContext('2d') // 画布
+      this.tracker = new tracking.ObjectTracker(['face']) // tracker实例
+      this.tracker.setStepSize(1.7) // 设置步长
+      try {
+        tracking.track('#video', this.tracker) // 开始追踪
+        this.tracker.on('track', this.handleTracked) // 绑定监听方法
+      } catch (e) {
+        this.scanTip = '访问用户媒体失败，请重试'
+      }
+    },
+    // 追踪事件
+    handleTracked(e) {
+      if (e.data.length === 0) {
+        this.scanTip = '未检测到人脸'
+        // clearTimeout(this.removePhotoID)
+      } else {
+        e.data.forEach(this.plot)
+        if (!this.tipFlag) {
+          this.scanTip = '检测成功，正在拍照，请保持不动'
+        }
+        // 1秒后拍照，仅拍一次
+        if (!this.flag) {
+          this.scanTip = '拍照中...'
+          this.flag = true
+          this.removePhotoID = setTimeout(() => {
+            this.tackPhoto()
+            this.tipFlag = true
+          }, 500)
+        }
+      }
+    },
+    // 绘制跟踪框
+    plot({ x, y, width: w, height: h }) {
+      // 创建框对象
+      this.profile = []
+      this.profile.push({ width: w, height: h, left: x, top: y })
+    },
+    // 拍照
+    tackPhoto() {
+      this.context.drawImage(
+        this.$refs.refVideo,
+        0,
+        0,
+        this.screenSize.width,
+        this.screenSize.height
+      )
+      // 保存为base64格式
+      this.imgUrl = this.saveAsPNG(this.$refs.refCanvas)
+      /** 拿到base64格式图片之后就可以在this.compare方法中去调用后端接口比较了，也可以调用getBlobBydataURI方法转化成文件再去比较
+       * 我们项目里有一个设置个人头像的地方，先保存一下用户的图片，然后去拿这个图片的地址和当前拍照图片给后端接口去比较。
+       * */
+      this.compare(this.imgUrl)
+      // this.close()
+    },
+    // Base64转文件
+    getBlobBydataURI(dataURI, type) {
+      var binary = window.atob(dataURI.split(',')[1])
+      var array = []
+      for (var i = 0; i < binary.length; i++) {
+        array.push(binary.charCodeAt(i))
+      }
+      return new Blob([new Uint8Array(array)], {
+        type: type,
+      })
+    },
+    compare(url) {
+      let blob = this.getBlobBydataURI(url, 'image/png')
+      let formData = new FormData()
+      formData.append('image', blob)
+      formData.append('token', this.$store.state.token)
+      let config = {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      } //添加请求头
+      this.$api
+        .verifiedFace(formData, false, config)
+        .then((res) => {
+          if (res.data.code == 1) {
+            sessionStorage.setItem('result', 1)
+            this.close()
+            this.$toast.show({
+              text: res.data.msg || '认证成功',
+              icon: 'success',
+              duration: 1500,
+            })
+          } else {
+            sessionStorage.setItem('result', 0)
+            this.close()
+            this.$toast.show({
+              text: res.data.msg || '认证失败',
+              icon: 'fail',
+              duration: 1500,
+            })
+          }
+        })
+        .catch((err) => {
+          sessionStorage.setItem('result', 0)
+          this.close()
+        })
+    },
+    // 保存为png,base64格式图片
+    saveAsPNG(c) {
+      return c.toDataURL('image/png', 0.3)
+    },
+    back() {
+      sessionStorage.removeItem('faceImageUrl')
+      this.close()
+    },
+    // 关闭并清理资源
+    close() {
+      if (this.isClose) return
+      this.isClose = true
+      this.flag = false
+      this.tipFlag = false
+      this.showFailPop = false
+      this.showContainer = false
+      this.tracker && this.tracker.removeListener('track', this.handleTracked)
+      this.tracker = null
+      this.context = null
+      this.profile = []
+      this.scanTip = '人脸识别中...'
+      clearTimeout(this.removePhotoID)
+      if (this.streamIns) {
+        this.streamIns.enabled = false
+        this.streamIns.getTracks()[0].stop()
+        this.streamIns.getVideoTracks()[0].stop()
+      }
+      this.streamIns = null
+      if (this.imgUrl) {
+        sessionStorage.setItem('faceImageUrl', this.imgUrl)
+      }
+      this.$router.go(-1)
+      // this.$router.push('/miner')
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+#face {
+  width: 100%;
+  height: 100%;
+}
+.face-capture {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.face-capture video,
+.face-capture canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.face-capture canvas {
+  z-index: 2;
+}
+
+.face-capture .img-cover {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.face-capture .rect {
+  border: rem(2) solid #0aeb08;
+  position: fixed;
+  z-index: 3;
+}
+
+.face-capture .control-container {
+  margin-top: rem(10);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 4;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.face-capture .title {
+  text-align: center;
+  color: white;
+  margin: 100% auto 0 auto;
+  font-size: rem(18);
+}
+
+.face-capture .close {
+  position: relative;
+  z-index: 100;
+  width: rem(40);
+  height: rem(40);
+}
+</style>
+```
+
+## 上传头像
+
+![logo](https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/bug/quarklend/logo.gif)
+
+```vue
+<template>
+  <div class="createTerritory-logo flex flex-align-center">
+    <div class="text flex">
+      <span>领地头像</span>
+    </div>
+    <div class="input" @click="handleSeletImage">
+      <img
+        :src="
+          logo
+            ? $utils.handlerImgUrl(logo)
+            : 'https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/bug/quarklend/upload.png'
+        "
+        alt=""
+      />
+      <input
+        ref="uploadInput"
+        type="file"
+        accept="image/*"
+        @change="uploadFile"
+      />
+      <div @click.stop="clearLogo" v-if="logo" class="clear">
+        <img
+          src="https://kamchan.oss-cn-shenzhen.aliyuncs.com/personalBlog/pubilc/bug/quarklend/icon-clear.png"
+          alt=""
+        />
+      </div>
+      <div v-if="isUploading" class="loading">
+        <div class="loading-bg"></div>
+        <div class="loading-icon">
+          <div class="loading-icon-loading">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 50 50"
+              style="enable-background:new 0 0 50 50"
+              xml:space="preserve"
+            >
+              <path
+                fill="#fff"
+                d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z"
+                transform="rotate(275.098 25 25)"
+              >
+                <animateTransform
+                  attributeType="xml"
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 25 25"
+                  to="360 25 25"
+                  dur="0.6s"
+                  repeatCount="indefinite"
+                ></animateTransform>
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'CreateTerritory',
+  data() {
+    return {
+      name: '', // 领地名称
+      desc: '', // 领地简介
+      logo: '', // 领地头像
+      path: '', // 头像路径
+      textMaxCount: 100, // 领地简介最大字数限制
+      isUploading: false, // 上传头像中
+    }
+  },
+  computed: {
+    /**
+     * @description: 领地简介的字数
+     * @return: {number}
+     */
+    inputCount() {
+      return this.desc.length
+    },
+  },
+  methods: {
+    /**
+     * @description: 选择头像
+     * @return: null
+     */
+    handleSeletImage() {
+      if (this.isUploading) return
+      this.$refs.uploadInput.click()
+      if (!this.$notNeed) {
+        this.$refs.uploadInput.click()
+      }
+    },
+    /**
+     * @description: 清除头像
+     * @return: null
+     */
+    clearLogo() {
+      this.logo = ''
+      this.path = ''
+      this.$refs.uploadInput.value = ''
+    },
+    /**
+     * @description: 上传图片
+     * @param {object} e 文件流
+     * @return: null
+     */
+    uploadFile(e) {
+      this.isUploading = true
+      let $target = e.target || e.srcElement
+      let file = $target.files[0]
+      let param = new FormData() //创建form对象
+      param.append('file', file) //通过append向form对象添加数据
+      param.append('token', this.$store.state.token)
+      let config = {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      } //添加请求头
+      this.$api
+        .handleUpload(param, false, config)
+        .then((res) => {
+          this.isUploading = false
+          this.$toast.show({
+            text: '上传成功',
+            duration: 1500,
+          })
+          this.logo = res.data.data.url
+          this.path = res.data.data.path
+        })
+        .catch((err) => {
+          this.isUploading = false
+        })
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.createTerritory-logo {
+  margin-top: rem(20);
+  .input {
+    margin-left: rem(20);
+    width: rem(90);
+    height: rem(90);
+    position: relative;
+    input {
+      display: none;
+    }
+    .clear {
+      position: absolute;
+      top: rem(-10);
+      right: rem(-10);
+      width: rem(20);
+      height: rem(20);
+    }
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      &-bg {
+        width: rem(90);
+        height: rem(90);
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+      }
+      &-icon {
+        width: rem(90);
+        height: rem(90);
+        margin: 0 auto rem(10) auto;
+        font-size: rem(40);
+        color: white;
+        &-loading {
+          position: relative;
+          svg {
+            position: absolute;
+            top: 0;
+          }
+        }
+        img {
+          display: block;
+          width: rem(90);
+          height: rem(90);
+        }
+      }
+    }
+  }
+}
+</style>
 ```

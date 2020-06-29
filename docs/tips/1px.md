@@ -311,12 +311,14 @@ $width3: 300%;
     @media screen and (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2) {
       width: 200%;
+      height: 200%;
       border-radius: $radius * 2;
       transform: scale(0.5);
     }
     @media screen and (min-device-pixel-ratio: 3),
       (-webkit-min-device-pixel-ratio: 3) {
       width: 300%;
+      height: 300%;
       border-radius: $radius * 3;
       transform: scale(0.33);
     }
@@ -341,9 +343,9 @@ $width3: 300%;
     content: '';
     position: absolute;
     z-index: 0;
-    right: 0;
+    left: 0;
     top: 0;
-    border-left: 1px $style $color;
+    border-right: 1px $style $color;
     @include vertical-min-device-pixel-ratio;
   }
 }
