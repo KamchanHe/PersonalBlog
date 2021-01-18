@@ -156,7 +156,11 @@ module.exports = {
       {
         text: 'FTF',
         icon: 'reco-sf',
-        link: '/ftf/ftf.md'
+        // link: '/ftf/ftf.md'
+        items: [
+          {text:'原型链',link:'/ftf/prototype.md'},
+          {text:'继承',link:'/ftf/extends.md'}
+        ]
       },
       {
         text: 'Personal',
@@ -283,6 +287,10 @@ module.exports = {
         ['/tips/svgRing.md', 'svg实现进度圆环'],
         ['/tips/canvasRing.md', 'canvas实现进度圆环'],
         ['/tips/svgBezier.md', 'svg实现贝塞尔曲线动画']
+      ],
+      '/ftf/': [
+        ['/ftf/prototype.md','原型链'],
+        ['/ftf/extends.md','继承']
       ]
     }
   },

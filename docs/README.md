@@ -13,6 +13,7 @@ features:
 - title: 
   details:
 ---
+## 复习 [继承方式](/ftf/extends.html)
 ## 新增 [h5快速搭建模版]('https://kamchan.oss-cn-shenzhen.aliyuncs.com/h5_template.zip')
 ## 新增 [canvas进度圆环](/tips/canvasRing.html)
 ## 新增 [svg进度圆环](/tips/svgRing.html)
