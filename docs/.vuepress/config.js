@@ -235,6 +235,7 @@ module.exports = {
         ['/bug/lodash', 'Vue3.0上遇到的Lodash使用问题'],
         ['/bug/ypdQualification', '优普道资质网开发遇到的问题'],
         ['/bug/quarklend', '日日币H5遇到的问题'],
+        ['/bug/joolunMall', '小程序开发用到的方法组件'],
       ],
       '/project/': [
         ['/project/home', '项目展示'],
