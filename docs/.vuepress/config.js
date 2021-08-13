@@ -60,7 +60,7 @@ module.exports = {
     },
     lastUpdated: 'Last Updated',
     record: '粤ICP备19023908号-1',
-    recordLink: 'http://www.beian.miit.gov.cn/',
+    recordLink: 'https://beian.miit.gov.cn/',
     startYear: '2019',
     author: 'Kamchan',
     logo: 'https://kamchan.oss-cn-shenzhen.aliyuncs.com/logo.png',
